@@ -1,0 +1,130 @@
+.App {
+  text-align: center;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #22201c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.brand-title {
+  font-size: 3rem;
+  color: #d9d9d9;
+}
+
+.brand-title span {
+  color: #ffde59;
+}
+
+.brand-description {
+  font-size: 1.4rem;
+}
+
+.links {
+  display: flex;
+}
+
+.links a {
+  color: #d9d9d9;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+  width: 80rem;
+  float: right;
+  
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  padding: 50px;
+  height: 70vh;
+  padding-top: 5%;
+  margin-left: 4rem;
+  
+  text-align: center;
+  width: 15rem;
+  margin-bottom: 2rem;
+  
+}
+.heart-button {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border: none;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 1rem;
+  display: flex;
+  margin-left: 1rem;
+  
+}
+
+.heart-button:before,
+.heart-button:after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-color:red;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart-button:before {
+  top: -15px;
+  left: 0;
+}
+
+.heart-button:after {
+  top: 0;
+  left: -15px;
+}
+
+.nav{
+
+  background-color: lightblue;
+  padding: 2rem;
+  
+}
+.sideBar{
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0%;
+  float: left;
+  width: 25rem;
+  height: 100rem;
+  padding-left: 2rem;
+  
+  position: fixed;
+
+
+
+}
