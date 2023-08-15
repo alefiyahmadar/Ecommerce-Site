@@ -14,7 +14,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "nonfiction",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
   },
@@ -22,6 +22,6 @@ export const categories = [
     _id: uuid(),
     categoryName: "horror",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Horror books are spine-chilling narratives that evoke fear and suspense through unsettling themes and eerie atmospheres.",
   },
 ];

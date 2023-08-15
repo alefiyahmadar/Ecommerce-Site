@@ -10,60 +10,88 @@ export const products = [
     _id: uuid(),
     title: "You Can WIN",
     author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    price: 50,
+    nonfiction: "nonfiction",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:2
   },
   {
     _id: uuid(),
     title: "You are Winner",
     author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    price: 450,
+    horror: "horror",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:4.5
   },
   {
     _id: uuid(),
     title: "Think and Grow Rich",
     author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    price: 550,
+    fiction: "fiction",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:3.5
   },
   {
     _id: uuid(),
     title: "Ikigai",
     author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    price: 700,
+    nonfiction: "nonfiction",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:5
   },
   {
     _id: uuid(),
     title: "Bold Move",
     author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    price: 750,
+    horror: "horror",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating: 5
   },
   {
     _id: uuid(),
     title: "Reap what you sow",
     author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    price: 800,
+    fiction: "fiction",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg"
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:1.5
+  },
+  {
+    _id: uuid(),
+    title: "Old Monk",
+    author: "Junaid Qureshi",
+    price: 1000,
+    horror: "horror",
+    isAddedToCart:false,
+    isWished:false  ,
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating: 3.9
+  },
+  {
+    _id: uuid(),
+    title: "Summer 0f 2000",
+    author: "Shiv Khera",
+    price: 950,
+    fiction: "fiction",
+    isAddedToCart:false,
+    isWished:false  ,
+    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    rating:3.9
   },
 ];

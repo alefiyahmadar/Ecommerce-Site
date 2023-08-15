@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Noto Sans', sans-serif;
   
 }
 
@@ -62,14 +63,16 @@
 .product-card {
   border: 1px solid #ddd;
   border-radius: 1rem;
-  padding: 50px;
-  height: 70vh;
+  padding-top:40px;
+  padding-bottom: 40px;
+  height: 70vh; 
   padding-top: 5%;
   margin-left: 4rem;
-  
+
   text-align: center;
-  width: 15rem;
+  width: 20rem;
   margin-bottom: 2rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
   
 }
 .heart-button {
@@ -109,7 +112,10 @@
 .nav{
 
   background-color: lightblue;
-  padding: 2rem;
+  
+  padding-top: 0%;
+  padding-bottom: 6%;
+  margin-block: 0%;
   
 }
 .sideBar{
@@ -127,4 +133,131 @@
 
 
 
+}
+.Cartbtn{
+  display: flex;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+
+    padding: 0.9rem ;
+    background-color: violet;
+    justify-content: center;
+
+    
+    
+  border-radius: 0.5rem;
+    font-size: large;
+    
+    border: none;
+    
+     
+  }
+  .item-title{
+
+    margin-top: 2rem;
+    margin-bottom: 0%;
+    margin-block-end: 0%;
+  text-align: left;
+  padding-left: 2rem;
+  }
+  
+  .item-author{
+
+    margin-block-start: 0%;
+    text-align: left;
+    padding-left: 2rem;
+    color: grey;
+  }
+  .item-price{
+
+    font-size: large;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  .homeMain{
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+  }
+
+  .image-container{
+    position: relative;
+    width: 100%;
+    margin-top: 0%;
+    
+  
+    
+
+  }
+  .home-bg{
+
+    background: url("https://img.freepik.com/premium-psd/high-angle-book-mock-up-with-glasses-coffee_23-2148657172.jpg?w=900");
+    width: 100%;
+    margin: auto;
+    height: 70vh;
+    
+ color:white;
+ position: relative;
+    
+
+    
+    
+    
+  }
+
+  .circular{
+
+
+    display:flex ;flex-direction:column ;width:200px
+     ; height:200px ; border-radius:50%  ; justify-content:center ; box-shadow: 0 0 25px rgba(0, 0, 0, 0.25) ;  padding:30px ; overflow:hidden ; transition:transform 0.2s; cursor: pointer;
+  }
+  .circular:hover {
+    transform: scale(1.1); /* Apply scale transformation on hover */
+  }
+  .circleTitle{
+
+    font-weight:bold; font-size:1.2rem;  
+  }
+  .circlePara{
+
+    font-size: large;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  
+  .homestorebtn{
+
+    display: flex;
+    margin-left: 20rem;
+    padding: 0.7rem;
+    width: 10%;
+    justify-content: center;
+    background-color: violet;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .homestorebtn:hover {
+    background-color: #22201c;
+  }
+
+.footer{
+  display: flex;
+
+  background-color: #22201c;
+  width: 100%;
+  height: 30vh;
+  
+  margin-top: 5rem;
+  text-align: left;
+  flex-direction: row;
+  
 }

@@ -6,24 +6,53 @@ import { HomePage } from "./pages/Home";
 import { ProductList } from "./pages/productList";
 import { GetCart } from "./pages/cart";
 import { GetWishList } from "./pages/wishlist";
+import { useContext } from "react";
+import { CartContext } from "./contexts/contextProvider";
+import { GetLogin } from "./pages/loginPage";
+import { GetSignUp } from "./pages/SignUp";
+import { GetUserPage } from "./pages/userPage";
+import { AuthWrapper } from "./contexts/AuthWrapper";
 
 
 function App() {
+
+  const {getCartLength , GetWishlistLength ,  isLoggedin , SetIsloggedIn} = useContext(CartContext)
   return (
     <div className="App">
 
       <nav className="nav">
-        <NavLink to="/productList" >ProductList</NavLink>
-        <NavLink to="/cart" >Cart</NavLink>
-        <NavLink to="/wishlist">wishlist  </NavLink>
+
+
+      
+
+        <div style={{display:"flex" , float:"right" , justifyContent:"space-around" , paddingRight:"4rem"  }}>
+
+
+        <p style={{color:"white" , fontSize:"1.5rem" , padding:"1rem" ,paddingLeft:"5rem" , paddingRight:"75rem" ,paddingBottom:"0%", fontWeight:"bold" }}>LiteraryLinx</p>
+
+          
+        
+        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length}</b></NavLink>
+
+        <NavLink to="/wishlist" style={{  paddingTop:"2rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><b style={{textDecoration:"none" , color:"white"  }}>{GetWishlistLength.length}</b>  </NavLink>
+
+        
+        <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"4rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
+        </div>
       </nav>
     
          
          <Routes>
           <Route path="/" element={<HomePage/>}></Route>
-          <Route path="/productList" element={<ProductList/>}></Route>
-          <Route path="/cart" element={<GetCart/>}></Route>
-          <Route path="/wishlist" element={<GetWishList/>}></Route>
+          <Route path="/productList" element={
+            isLoggedin ? <ProductList/> :<AuthWrapper><ProductList/></AuthWrapper>
+          
+          }></Route>
+          <Route path="/cart" element={  isLoggedin ? <GetCart/> :<AuthWrapper><GetCart/></AuthWrapper>}></Route>
+          <Route path="/wishlist" element={ isLoggedin ? <GetWishList/> :<AuthWrapper><GetWishList/></AuthWrapper>}></Route>
+          <Route path="/login" element={<GetLogin/>}></Route>
+          <Route path="/signup" element={<GetSignUp/>}></Route>
+          <Route path="/user" element={ isLoggedin ? <GetUserPage/> :<AuthWrapper><GetUserPage/></AuthWrapper>}></Route>
          </Routes>
 
 
