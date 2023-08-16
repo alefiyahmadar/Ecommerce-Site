@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import { NavLink, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import {  useNavigate } from "react-router-dom"
 import { CartContext } from "../contexts/contextProvider"
 import {categories} from "../backend/db/categories"
 
@@ -18,10 +18,7 @@ navigate("/productList")
 
 
 }
-const handleButtonClick =()=>{
 
-    console.log("test")
-}
 
 
     
@@ -78,7 +75,7 @@ categories.map((item)=><div onClick={()=>getPerHome(item.categoryName)} classNam
 
             <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%" , paddingLeft:"10rem" ,paddingTop:"0.1rem",paddingBottom:"0.5rem" }}>Privacy Policy</p>
             <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%" , paddingLeft:"10rem" ,paddingBottom:"0.5rem" }}>Terms of use</p>
-            <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%" , paddingLeft:"10rem" , fontSize:"small"  }}>@2022 LiteraryLinx</p>
+            <p style={{color:"white"  ,marginBlock:"0%" , paddingLeft:"10rem" , fontSize:"small"  }}>@2022 LiteraryLinx</p>
             </div>
             <div style={{display:"flex" , padding:"1.5rem" , flexDirection:"column"}} >
                     <p style={{fontSize:"larger" , color:"white" , fontWeight:"300" , marginLeft:"20rem"}}>Connect</p>

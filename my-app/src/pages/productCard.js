@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
+import { useNavigate } from "react-router-dom"
 
 export const ProductCard =(item)=>{
 
@@ -7,13 +8,13 @@ export const ProductCard =(item)=>{
      title,
     author,
     price,
-    fiction,nonfiction,horror,
+    
     isAddedToCart,
-    isWished, image , rating}=item
+    isWished, image , rating , quantity , isCart}=item
 
-    const{cart , setCart , getProducts , setProducts ,wishlist , setWishlist , AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist} = useContext(CartContext)
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler } = useContext(CartContext)
 
-
+const navigate = useNavigate()
 
 
 
@@ -27,12 +28,17 @@ export const ProductCard =(item)=>{
 </div>
        
 
-        <img style={{display:"flex" , width:"80%" , margin:"auto"}} src={image} alt=""></img>
+        <img style={{display:"flex" , width:"80%" , margin:"auto"}} src={image} alt="" onClick={()=>navigate(`/individual/${_id}`)}></img>
         
         <h3  className="item-title" >{title}  </h3>
         <p className="item-author">{author}</p>
         <p className="item-price">₹{price}</p>
+        {
+            isCart && 
         
+            <span className="qty"><button  onClick={()=>incrementHandler(_id)}>+</button>  <span className="qtyNum"> {quantity}</span> <button onClick={()=>decrementHandler(_id)}>-</button></span>
+
+       }
         <button className="Cartbtn" onClick={isAddedToCart ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{isAddedToCart ? "Remove From Cart" : "Add to cart"}</button>
         
        

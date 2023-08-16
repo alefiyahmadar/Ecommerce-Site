@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 
 import { ProductCard } from "./productCard"
 import { CartContext } from "../contexts/contextProvider"
@@ -6,7 +6,7 @@ import { CartContext } from "../contexts/contextProvider"
 export const ProductList =()=>{
 
 
-    const {getProducts , setProducts} = useContext(CartContext)
+
     const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn } = useContext(CartContext)
 
 
@@ -23,6 +23,7 @@ export const ProductList =()=>{
 </div>
 
             <h3>Rating</h3>
+            
              <input  type="range" min="0"  max="5" value={rangeValue} onChange={getSliderHandler} style={{width:"10rem"}}/>
 
 
@@ -33,20 +34,20 @@ export const ProductList =()=>{
 
              <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="fiction"  onChange={GetCategoryHandler}></input>
 
-             <label for="fiction" >Fiction</label>
+             <label htmlFor="fiction"  >Fiction</label>
 
              
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
              <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="nonfiction" onChange={GetCategoryHandler}></input>
     
-             <label for="nonfiction" >Non-Fiction</label>
+             <label htmlFor="nonfiction"  >Non-Fiction</label>
              
             
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }} >
              <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="horror" onChange={GetCategoryHandler}></input>
-             <label for="horror" >Horror</label>
+             <label htmlFor="horror" >Horror</label>
             
              </div>
 
@@ -60,14 +61,14 @@ export const ProductList =()=>{
 
              <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="LowToHigh" name="sort" onChange={sortHandler}></input>
 
-             <label for="LowToHigh" >Price - Low To High</label>
+             <label htmlFor="LowToHigh" >Price - Low To High</label>
 
              
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
              <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="HighToLow" name="sort" onChange={sortHandler}></input>
     
-             <label for="HighToLow" >Price - High To Low</label>
+             <label htmlFor="HighToLow" >Price - High To Low</label>
              
             
              </div>

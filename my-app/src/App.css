@@ -65,13 +65,13 @@
   border-radius: 1rem;
   padding-top:40px;
   padding-bottom: 40px;
-  height: 70vh; 
-  padding-top: 5%;
+  height: 75vh; 
+  padding-top: 4%;
   margin-left: 4rem;
 
   text-align: center;
   width: 20rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
   
 }
@@ -114,7 +114,7 @@
   background-color: lightblue;
   
   padding-top: 0%;
-  padding-bottom: 6%;
+  padding-bottom: 7%;
   margin-block: 0%;
   
 }
@@ -144,6 +144,7 @@
     background-color: violet;
     justify-content: center;
 
+    margin-top: 1rem;
     
     
   border-radius: 0.5rem;
@@ -260,4 +261,34 @@
   text-align: left;
   flex-direction: row;
   
+}
+.login{
+
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin: auto;
+  padding: 4rem;
+  margin-top: 1rem;
+  border: 1px solid violet;
+  margin-top: 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+.qty{
+padding: 1rem;
+  
+}
+.qty button{
+
+font-size: large;
+  padding: 0.7rem;
+  border-radius: 0.7rem;
+  border: none;
+  background-color: lightgray;
+}
+
+.qtyNum{
+padding: 0.5rem;
+  border: 1px solid;
 }

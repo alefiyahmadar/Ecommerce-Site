@@ -12,11 +12,13 @@ import { GetLogin } from "./pages/loginPage";
 import { GetSignUp } from "./pages/SignUp";
 import { GetUserPage } from "./pages/userPage";
 import { AuthWrapper } from "./contexts/AuthWrapper";
+import { GetProductDetail } from "./pages/productDetail";
+import { CheckOut } from "./pages/checkout";
 
 
 function App() {
 
-  const {getCartLength , GetWishlistLength ,  isLoggedin , SetIsloggedIn} = useContext(CartContext)
+  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce} = useContext(CartContext)
   return (
     <div className="App">
 
@@ -32,7 +34,7 @@ function App() {
 
           
         
-        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length}</b></NavLink>
+        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length} / {useReduce}</b></NavLink>
 
         <NavLink to="/wishlist" style={{  paddingTop:"2rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><b style={{textDecoration:"none" , color:"white"  }}>{GetWishlistLength.length}</b>  </NavLink>
 
@@ -53,6 +55,8 @@ function App() {
           <Route path="/login" element={<GetLogin/>}></Route>
           <Route path="/signup" element={<GetSignUp/>}></Route>
           <Route path="/user" element={ isLoggedin ? <GetUserPage/> :<AuthWrapper><GetUserPage/></AuthWrapper>}></Route>
+          <Route path="/individual/:prodId" element={isLoggedin ? <GetProductDetail/> :<AuthWrapper><GetProductDetail/></AuthWrapper>}></Route>
+          <Route path="/checkout" element={<CheckOut/>}></Route>
          </Routes>
 
 

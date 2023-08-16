@@ -15,7 +15,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:2
+    rating:2,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -26,7 +27,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:4.5
+    rating:4.5,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -37,7 +39,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:3.5
+    rating:3.5,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -48,7 +51,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:5
+    rating:5,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -59,7 +63,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating: 5
+    rating: 5,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -70,7 +75,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:1.5
+    rating:1.5,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -81,7 +87,8 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating: 3.9
+    rating: 3.9,
+    quantity:1
   },
   {
     _id: uuid(),
@@ -92,6 +99,7 @@ export const products = [
     isAddedToCart:false,
     isWished:false  ,
     image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-    rating:3.9
+    rating:3.9,
+    quantity:1
   },
 ];
