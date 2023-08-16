@@ -34,7 +34,7 @@ function App() {
 
           
         
-        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length} / {useReduce}</b></NavLink>
+        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length} / ₹{useReduce}</b></NavLink>
 
         <NavLink to="/wishlist" style={{  paddingTop:"2rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><b style={{textDecoration:"none" , color:"white"  }}>{GetWishlistLength.length}</b>  </NavLink>
 

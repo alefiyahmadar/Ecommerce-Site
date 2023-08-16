@@ -9,10 +9,12 @@ export const CheckOut = ()=>{
 const { getCartLength , useReduce , discount , coupan , showCpn  ,adressArr} = useContext(CartContext)
 
 const [selectedAdress , setSelected] = useState([])
+const [select , setSelect] = useState(false)
 
 const getAddress =(id)=>{
 const showAdress = adressArr.filter((e)=>e.id === id)
 setSelected(showAdress)
+setSelect(!select)
 
 }
 
@@ -23,7 +25,7 @@ setSelected(showAdress)
 
 {
 
-adressArr.map(({ id , name , house , city , state , country , pincode , number } )=>{
+adressArr.map(({ id , name , house , city , state , country , pincode , number  } )=>{
 
 
 
@@ -39,7 +41,7 @@ style={{  position:"fixed" , marginTop:"2rem" , paddingLeft:"4rem"}}
 
 >
     <div  >
-    <input style={{  paddingRight:"1rem",marginRight:"1rem" }} type="radio" name="select"  onChange={()=>getAddress(id)} />
+    <input style={{  paddingRight:"1rem",marginRight:"1rem" }} type="radio"   name="address" onChange={()=>getAddress(id)} />
 
 <h2 >{name}</h2>
 

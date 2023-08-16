@@ -13,7 +13,8 @@ const [adressArr , setAddressArr] = useState([{id:0 , name:"Mary Jane"  ,house:"
 const [discount , SetDiscount] = useState(40)
 const [coupan ,setCoupan ] =useState(0)
 const [showCpn , setShowCpn] =useState("") 
-
+const [showAlert, setShowAlert] = useState(false);
+const [alertMsg , setAlertMsg] = useState("")
 
 
 
@@ -53,6 +54,9 @@ const AddToCartHandler = (item)=>{
 
     setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:true} : e))
 
+    setShowAlert(true)
+    setAlertMsg("Item added to cart")
+
     
     }
    
@@ -71,6 +75,9 @@ const AddToCartHandler = (item)=>{
     const RemoveFromCart =(item)=>{
     
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:false} :e))
+
+        setShowAlert(true)
+        setAlertMsg("Item removed from cart")
      
         
     
@@ -81,6 +88,8 @@ const AddToCartHandler = (item)=>{
     
     
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isWished:true}:e))
+        setShowAlert(true)
+        setAlertMsg( "Item added to wishlist")
     
         
     }
@@ -89,6 +98,8 @@ const AddToCartHandler = (item)=>{
     
     const RemoveFromWishlist = (item)=>{
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isWished:false}:e))
+        setShowAlert(true)
+        setAlertMsg( "Item removed from wishlist")
     
     
         
@@ -160,9 +171,13 @@ const decrementHandler =(id)=>{
     
    const getCartLength =  getProducts.filter((e)=>e.isAddedToCart === true) 
 
+   const handleAlertClose =()=>{
+    setShowAlert(false)
+}
+
 
     return(
-        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn }}>
+        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose }}>
             {children}
         </CartContext.Provider>
     )

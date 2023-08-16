@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { ProductCard } from "./productCard"
+import { AlertMessage } from "./alertMsg"
 
 export const GetWishList =()=>{
 
-const {getProducts} = useContext(CartContext)
+const {getProducts , showAlert , alertMsg , handleAlertClose} = useContext(CartContext)
 
     return(<div>
         <p>wishlist</p>
@@ -14,5 +15,9 @@ const {getProducts} = useContext(CartContext)
                 getProducts.map((e)=>e.isWished ? <ProductCard {...e} />:"")
             }
         </div>
+        {
+                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+            }
+
     </div>)
 }

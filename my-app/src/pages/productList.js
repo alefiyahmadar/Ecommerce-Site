@@ -2,12 +2,13 @@ import { useContext } from "react"
 
 import { ProductCard } from "./productCard"
 import { CartContext } from "../contexts/contextProvider"
+import { AlertMessage } from "./alertMsg"
 
 export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn ,showAlert , setShowAlert , alertMsg , setAlertMsg ,handleAlertClose  } = useContext(CartContext)
 
 
         
@@ -17,18 +18,26 @@ export const ProductList =()=>{
 
     return(<div>
         <div className="sideBar" style={{margin:"0%"}}  >
+            {
+                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+            }
+
+
             
             <div style={{display:"flex" , justifyContent:"space-around" , marginTop:"2rem" }}>
              <p style={{margin:"0%" , marginRight:"75%"}}>Filters</p>< button style={{backgroundColor:"white" , border:"none" , fontSize:"large" , textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
 </div>
 
             <h3>Rating</h3>
+            <p>{rangeValue}</p>
             
              <input  type="range" min="0"  max="5" value={rangeValue} onChange={getSliderHandler} style={{width:"10rem"}}/>
 
 
 
              <h3>Category</h3>
+             
+             
 
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
 
