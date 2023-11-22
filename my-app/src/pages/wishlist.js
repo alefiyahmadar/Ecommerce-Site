@@ -5,18 +5,28 @@ import { AlertMessage } from "./alertMsg"
 
 export const GetWishList =()=>{
 
-const {getProducts , showAlert , alertMsg , handleAlertClose} = useContext(CartContext)
+const {getProducts , showAlert , alertMsg , handleAlertClose , objState , setState} = useContext(CartContext)
 
+
+
+const userData = JSON.parse(localStorage.getItem("user")).wishlist
+
+
+
+console.log(userData)
     return(<div>
         <p>wishlist</p>
 
         <div className="product-grid" style={{margin:"auto" , width:"90%"}}>
             {
-                getProducts.map((e)=>e.isWished ? <ProductCard {...e} />:"")
+                
+
+                userData.map(((e)=> <ProductCard {...e} />))
             }
         </div>
         {
                 showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+                
             }
 
     </div>)

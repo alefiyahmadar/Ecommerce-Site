@@ -1,12 +1,12 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { ProductCard } from "./productCard"
-import { useNavigate } from "react-router-dom"
+import { json, useNavigate } from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
 
 export const GetCart = ()=>{
 
-    const {getProducts  , getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan  , showAlert , alertMsg , handleAlertClose  } = useContext(CartContext)
+    const {getProducts  , getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan  , showAlert , alertMsg , handleAlertClose   , objState , setState } = useContext(CartContext)
 
     const navigate = useNavigate()
 
@@ -38,7 +38,10 @@ export const GetCart = ()=>{
   
 
     
-   
+    const userData = [JSON.parse(localStorage.getItem("user"))]
+
+    
+    
     
 
 
@@ -49,7 +52,9 @@ export const GetCart = ()=>{
        
 
         {
-            getProducts.map((e)=>e.isAddedToCart? <ProductCard {...e }  isCart /> :"" )
+           
+
+            userData.map((e)=>e.cart.map((e)=> <ProductCard {...e} isCart />))
         }
         
         

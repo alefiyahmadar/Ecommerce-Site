@@ -1,8 +1,9 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
 
 export const ProductCard =(item)=>{
+
 
     const {_id ,  
      title,
@@ -12,9 +13,20 @@ export const ProductCard =(item)=>{
     isAddedToCart,
     isWished, image , rating , quantity , isCart}=item
 
-    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler } = useContext(CartContext)
+  
+
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler  , isCarted , setIsCart , cart , setCart} = useContext(CartContext)
 
 const navigate = useNavigate()
+
+console.log(cart)
+
+
+
+
+
+
+
 
 
 
@@ -23,7 +35,7 @@ const navigate = useNavigate()
     return(<div key={_id} className="product-card"  >
 
       <div style={{display:"flex" , justifyContent:"space-between"}}>
-      <button className="heart-button" style={{opacity:isWished ? "1" :"0.1"}} onClick={ isWished ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
+      <button className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
       <p style={{backgroundColor:"red"  , color:"white" , borderRadius:"1rem" , padding:"0.5rem" , marginBlock:"0%" ,marginBlockEnd:"2%" , width:"3rem"  , fontWeight:"bold" , justifyContent:"center" , paddingBottom:"0%" , marginRight:"2rem"}}>{rating}⭐</p>
 </div>
        
@@ -39,7 +51,9 @@ const navigate = useNavigate()
             <span className="qty"><button  onClick={()=>incrementHandler(_id)}>+</button>  <span className="qtyNum"> {quantity}</span> <button onClick={()=>decrementHandler(_id)}>-</button></span>
 
        }
-        <button className="Cartbtn" onClick={isAddedToCart ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{isAddedToCart ? "Remove From Cart" : "Add to cart"}</button>
+
+
+        <button className="Cartbtn" onClick={JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title)   ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title) ? "Remove From Cart" : "Add to cart"}</button>
         
        
     
@@ -49,3 +63,4 @@ const navigate = useNavigate()
 
     
 }
+

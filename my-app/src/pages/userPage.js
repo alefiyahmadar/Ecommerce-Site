@@ -3,7 +3,7 @@ import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
 
 export const GetUserPage = ()=>{
-const {loggedInUser   , SetIsloggedIn , adressArr , setAddressArr  } = useContext(CartContext)
+const {loggedInUser   , SetIsloggedIn , adressArr , setAddressArr  , objState , setState } = useContext(CartContext)
 const [showadress , setAdress] = useState(false)
 const [newAdress , setNewAdress] = useState(false)
 
@@ -12,7 +12,7 @@ const [newAdress , setNewAdress] = useState(false)
 const [getName , setName] = useState("")
 const [getHouse , setHouse] = useState("")
 const [getCity , setCity] = useState("")
-const [getState , setState] = useState("")
+const [getState , setgetState] = useState("")
 const [getCountry , setCountry] = useState("")
 const [getPinCode , setPincode] = useState("")
 const [getNumber , setNumber] = useState("")
@@ -24,9 +24,12 @@ const navigate = useNavigate()
 const LogOutHandler = ()=>{
 
     SetIsloggedIn(false)
-
     navigate("/login")
     
+    
+    
+    window.location.reload()
+
 }
 const handleAdressBar = ()=>{
 
@@ -50,7 +53,7 @@ const AddAdress = ()=>{
     setName("")
     setHouse("")
     setCity("")
-    setState("")
+    setgetState("")
     setCountry("")
     setPincode("")
     setNumber("")
@@ -65,6 +68,8 @@ const removeAdress =(id)=>{
     setAddressArr(useFilter)
     
         }
+
+        const user = JSON.parse(localStorage.getItem("user"))
     
 
 
@@ -80,9 +85,9 @@ const removeAdress =(id)=>{
 
         <div  style={{ display:showadress ? "none" :"flex",  margin:"auto"   , flexDirection:"column" , textAlign:"left" , paddingLeft:"45%"}}>
 
-        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"1rem"}}><span style={{color:"grey"}}>Name</span> {loggedInUser.firstName} {loggedInUser.lastName}</p>
+        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"1rem"}}><span style={{color:"grey"}}>Name</span> {user.someUserAttribute1} {user.someUserAttribute2}</p>
 
-        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"0%"}}> <span style={{color:"grey"}}>Email</span> {loggedInUser.email}</p>
+        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"0%"}}> <span style={{color:"grey"}}>Email</span> {user.email}</p>
 
         <button style={{padding:"0.5rem" , width:"15%" , backgroundColor:"red" , color:"white" , border:"none" , marginLeft:"1rem" , fontSize:"large" , fontWeight:"bold" , borderRadius:"0.5rem"}} onClick={LogOutHandler}>Log Out</button>
 
@@ -126,7 +131,7 @@ const removeAdress =(id)=>{
 
             <input style={{padding:"0.5rem" ,fontSize:"large"  , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setHouse(e.target.value)} placeholder="House No. , Colony , Road" value={getHouse}  />
             <input style={{padding:"0.5rem" ,fontSize:"large"  , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>{setCity(e.target.value)}} placeholder="City" value={getCity}  />
-            <input style={{padding:"0.5rem"  ,fontSize:"large" , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setState(e.target.value)} placeholder="State"  value={getState} />
+            <input style={{padding:"0.5rem"  ,fontSize:"large" , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setgetState(e.target.value)} placeholder="State"  value={getState} />
             <input style={{padding:"0.5rem" ,fontSize:"large"  , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setCountry(e.target.value)} placeholder="Country"  value={getCountry} />
             <input style={{padding:"0.5rem" ,fontSize:"large"  , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setPincode(e.target.value)} placeholder="Postal Pin Code" value={getPinCode} />
             <input style={{padding:"0.5rem" ,fontSize:"large"  , marginBottom:"1.5rem" , borderRadius:"0.5rem" , outline:"none"}}  onChange={(e)=>setNumber(e.target.value)} placeholder="Number" value={getNumber}  />

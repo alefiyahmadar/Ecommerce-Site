@@ -1,4 +1,7 @@
 import { createContext, useEffect, useState } from "react";
+import { users } from "../backend/db/users";
+import { formatDate } from "../backend/utils/authUtils";
+import {v4 as uuid} from "uuid"
 
 export const CartContext = createContext()
 
@@ -15,10 +18,46 @@ const [coupan ,setCoupan ] =useState(0)
 const [showCpn , setShowCpn] =useState("") 
 const [showAlert, setShowAlert] = useState(false);
 const [alertMsg , setAlertMsg] = useState("")
+const [isCarted , setIsCart] = useState(false)
+const [userArray, setUserArray] = useState(users);
 
 
 
 
+
+
+
+
+const parseObj = JSON.parse(localStorage.getItem("user"))
+
+
+const [ objState , setState] = useState([parseObj])
+
+const [ cart , setCart ] = useState(localStorage.getItem("user") && localStorage.getItem("user").cart ? localStorage.getItem("user").cart : [])
+const [ wishList , setWishList] = useState( localStorage.getItem("user") && localStorage.getItem("user").wishlist ? localStorage.getItem("user").wishlist : [])
+
+const [defaultUser , setDefault] = useState({   _id: uuid(),
+    firstName: "Adarsh",
+    lastName: "Balika",
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+cart:[],
+wishlist:[]})
+
+
+
+
+
+
+
+localStorage.setItem("usersArray" , JSON.stringify(userArray))
+
+const storedUsers = JSON.parse(localStorage.getItem('userArray'));
+    if (storedUsers) {
+      setUserArray(storedUsers);
+    }
 
 
 const fetchData =async()=>{
@@ -34,6 +73,24 @@ setProducts(products)
 
 
 
+const serializedArr = JSON.stringify(users)
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
     }catch(e){
 
@@ -44,40 +101,57 @@ console.log(e)
 }
 
 useEffect(()=>{
+    
+
     fetchData()
+  
     
 },[])
 
 
 
 const AddToCartHandler = (item)=>{
+    const newItm = {...item , isAddedToCart:true}
+    const userData = JSON.parse(localStorage.getItem("user"))
 
     setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:true} : e))
+    
+    
+
+    setCart([...cart , newItm ])
+
+    const updateData = {...userData , cart:[...cart , newItm]}
+
+    localStorage.setItem("user", JSON.stringify(updateData));
+
+
 
     setShowAlert(true)
     setAlertMsg("Item added to cart")
 
     
     }
-   
-
-
-  
-
-
-  
-
-
-
-
+    
 
 
     const RemoveFromCart =(item)=>{
-    
+            
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:false} :e))
+        
+        const userData = JSON.parse(localStorage.getItem("user"))
+
+        userData.cart = userData.cart.filter((product) => item.title !== product.title);
+    
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    
+        
+        
 
         setShowAlert(true)
         setAlertMsg("Item removed from cart")
+
+
      
         
     
@@ -85,9 +159,30 @@ const AddToCartHandler = (item)=>{
     
     }
     const AddToWishlistHandler =(item)=>{
+
+        
+    const newItm = {...item , isWished:true}
     
+
     
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isWished:true}:e))
+
+        setWishList([...wishList , newItm])
+
+        const userData = JSON.parse(localStorage.getItem("user"))
+        
+        
+        
+
+        const updateData = {...userData , wishlist:[...userData.wishlist , newItm]}
+
+        
+        
+    
+        localStorage.setItem("user", JSON.stringify(updateData));
+setState((prevItem)=>prevItem.map((e)=>item ? {...e , wishlist:[ ...e.wishlist,newItm]} : e))
+
+
         setShowAlert(true)
         setAlertMsg( "Item added to wishlist")
     
@@ -97,14 +192,29 @@ const AddToCartHandler = (item)=>{
     const GetWishlistLength = getProducts.filter((e)=>e.isWished === true)
     
     const RemoveFromWishlist = (item)=>{
+
+
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isWished:false}:e))
+
+const filterWish = wishList.filter((e)=>e.id !== item.id)
+
+
+const userData = JSON.parse(localStorage.getItem("user"))
+
+ userData.wishlist = userData.wishlist.filter((product) => item.title !== product.title);
+    
+
+    localStorage.setItem("user", JSON.stringify(userData));
+
         setShowAlert(true)
         setAlertMsg( "Item removed from wishlist")
     
     
         
     
-    }    
+    } 
+    
+    
 
     const getSliderHandler =(e)=>{
 
@@ -167,7 +277,7 @@ const decrementHandler =(id)=>{
 
 }
 
-   const useReduce = getProducts.filter((e)=>e.isAddedToCart === true).reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
+   const useReduce = JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
     
    const getCartLength =  getProducts.filter((e)=>e.isAddedToCart === true) 
 
@@ -177,7 +287,7 @@ const decrementHandler =(id)=>{
 
 
     return(
-        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose }}>
+        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose  , objState , setState , isCarted , setIsCart , cart , setCart , userArray , setUserArray , defaultUser , setDefault}}>
             {children}
         </CartContext.Provider>
     )

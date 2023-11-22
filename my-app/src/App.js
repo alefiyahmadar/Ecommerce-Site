@@ -1,6 +1,7 @@
 import "./App.css";
 import {NavLink, Route , Routes} from "react-router-dom"
 
+import Mockman from "mockman-js";
 
 import { HomePage } from "./pages/Home";
 import { ProductList } from "./pages/productList";
@@ -18,7 +19,10 @@ import { CheckOut } from "./pages/checkout";
 
 function App() {
 
-  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce} = useContext(CartContext)
+  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce } = useContext(CartContext)
+const userCart = JSON.parse(localStorage.getItem("user")).cart
+const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
+
   return (
     <div className="App">
 
@@ -34,9 +38,10 @@ function App() {
 
           
         
-        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white"  }}>{getCartLength.length} / ₹{useReduce}</b></NavLink>
+        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"4rem" }} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><b style={{textDecoration:"none" , color:"white" , display:isLoggedin ? "flex" : "none" }}>
+          { userCart.length} / ₹{useReduce}</b></NavLink>
 
-        <NavLink to="/wishlist" style={{  paddingTop:"2rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><b style={{textDecoration:"none" , color:"white"  }}>{GetWishlistLength.length}</b>  </NavLink>
+        <NavLink to="/wishlist" style={{  paddingTop:"2rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><b style={{textDecoration:"none" , color:"white"  }}>{ isLoggedin &&  userWishList.length}</b>  </NavLink>
 
         
         <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"4rem" }}><img width="50" height="50" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
@@ -46,6 +51,7 @@ function App() {
          
          <Routes>
           <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/mockman" element={<Mockman/>}></Route>
           <Route path="/productList" element={
             isLoggedin ? <ProductList/> :<AuthWrapper><ProductList/></AuthWrapper>
           

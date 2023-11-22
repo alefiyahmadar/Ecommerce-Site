@@ -1,22 +1,106 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, json, useNavigate } from "react-router-dom"
+import { users } from "../backend/db/users"
+import { requiresAuth } from "../backend/utils/authUtils"
+import { parse } from "uuid"
+
+
 
 export const GetSignUp =()=>{
 
-    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn} = useContext(CartContext)
+    const [foo, setFoo] = useState([]);
+
+    
+
+    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn  , objState , setState , userArray , setUserArray} = useContext(CartContext)
+
 
     const navigate = useNavigate()
 
 
-    const SignUpHandler = ()=>{
+
+
+    const SignUpHandler = async()=>{
+
+        try{
+
+            
+
+                const creds = {
+
+                    
+                        email:loggedInUser.email, password:loggedInUser.password, someUserAttribute1:loggedInUser.firstName, someUserAttribute2:loggedInUser.lastName
+                      
+                     
+                }
+                
+                const res = await fetch("/api/auth/signup" , { method:"POST" , body:JSON.stringify(creds) })
+
+                
+                
+
+
+                const {createdUser ,encodedToken} = await res.json()
+
+                    const serializedObj = JSON.stringify(createdUser)
+                    const  serializedToken = JSON.stringify(encodedToken)
+
+                    
+
+
+              localStorage.setItem("user" , serializedObj)
+
+              
+
+              const userIn = JSON.parse(localStorage.getItem("user"))
+
+              const updatedUserArray = [...userArray, userIn];
+
+              setUserArray(updatedUserArray);
+    localStorage.setItem('userArray', JSON.stringify(updatedUserArray));
+
+              
+
+              
+              
+
+            
+              
+              
+
+              
+            
+
+
+
+              
+
+
+
+              
+
+        
+
+        }catch(e){
+            console.error(e)
+
+        }
 
         SetIsloggedIn(!isLoggedin)
 
         navigate("/productList")
 
+        
+
+
+
 
     }
+
+    
+
+    
    
 
 
@@ -33,7 +117,7 @@ export const GetSignUp =()=>{
 
                 <input type="email" placeholder="Email" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , email:e.target.value})} />
 
-                <input type="password" placeholder="Password" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}}/>
+                <input type="password" placeholder="Password" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , password:e.target.value})}/>
 
                 <button style={{padding:"0.5rem" , backgroundColor:"violet" , border:"none" , color:"white" , fontSize:"large" , fontWeight:'bold' , borderRadius:"1rem"}} onClick={SignUpHandler}>Sign Up</button>
                 
