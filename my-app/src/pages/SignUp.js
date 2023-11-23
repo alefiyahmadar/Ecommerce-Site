@@ -13,7 +13,7 @@ export const GetSignUp =()=>{
 
     
 
-    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn  , objState , setState , userArray , setUserArray} = useContext(CartContext)
+    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn  , objState , setState , userArray , setUserArray , defaultUser} = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -77,12 +77,16 @@ export const GetSignUp =()=>{
 
 
     }
-    useEffect(() => {
-        const storedUsers = localStorage.getItem('userArray');
-        if (storedUsers) {
-          setUserArray(JSON.parse(storedUsers));
-        }
-      }, []);
+    // useEffect(() => {
+    
+    //     SignUpHandler()
+        
+
+    //     const storedUsers = localStorage.getItem('userArray');
+    //     if (storedUsers) {
+    //       setUserArray(JSON.parse(storedUsers));
+    //     }
+    //   }, []);
 
   
 
