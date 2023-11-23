@@ -52,17 +52,36 @@ wishlist:[]})
 
 
 
-localStorage.setItem("usersArray" , JSON.stringify(userArray))
 
-const storedUsers = JSON.parse(localStorage.getItem('userArray'));
-    if (storedUsers) {
-      setUserArray(storedUsers);
-    }
+
+// const storedUsers = JSON.parse(localStorage.getItem('userArray'));
+//     if (storedUsers) {
+//       setUserArray(storedUsers);
+//     }
+
+// const initializeUsers = () => {
+//     const storedUsers = localStorage.getItem('usersArray');
+//     if (storedUsers) {
+//       setUserArray(JSON.parse(storedUsers));
+//     } else {
+//     //   // Initialize with a default user
+      
+//     //   setUserArray([defaultUser]);
+//     //   localStorage.setItem('usersArray', JSON.stringify([defaultUser]));
+//     }
+//   };
+
 
 
 const fetchData =async()=>{
 
+
+
     try{
+        
+
+   
+
 
 const getData = await fetch("/api/products")
 
@@ -84,13 +103,6 @@ const serializedArr = JSON.stringify(users)
 
 
 
-    
-
-
-
-
-
-
 
     }catch(e){
 
@@ -102,8 +114,12 @@ console.log(e)
 
 useEffect(()=>{
     
+  
 
     fetchData()
+    
+
+
   
     
 },[])

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { NavLink, json, useNavigate } from "react-router-dom"
 import { users } from "../backend/db/users"
@@ -46,7 +46,7 @@ export const GetSignUp =()=>{
                     const serializedObj = JSON.stringify(createdUser)
                     const  serializedToken = JSON.stringify(encodedToken)
 
-                    
+                
 
 
               localStorage.setItem("user" , serializedObj)
@@ -61,26 +61,6 @@ export const GetSignUp =()=>{
     localStorage.setItem('userArray', JSON.stringify(updatedUserArray));
 
               
-
-              
-              
-
-            
-              
-              
-
-              
-            
-
-
-
-              
-
-
-
-              
-
-        
 
         }catch(e){
             console.error(e)
@@ -97,6 +77,10 @@ export const GetSignUp =()=>{
 
 
     }
+
+    useEffect(()=>{
+        SignUpHandler()
+    },[])
 
     
 

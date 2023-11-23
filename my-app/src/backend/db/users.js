@@ -15,5 +15,7 @@ export const users = [
     password: "adarshbalika",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    cart:[],
+    wishlist:[]
   },
 ];
