@@ -55,9 +55,17 @@ export const GetLogin = () => {
             const checkUser = (JSON.parse(localStorage.getItem("user")))
 
             const usersArr = JSON.parse(localStorage.getItem("userArray"))
+            console.log(usersArr)
             
             
-            if(checkUser.email === emaillog && checkUser.password === passLog){
+            if(usersArr.find((e)=>e.email === emaillog && e.password === passLog)){
+
+                console.log("truee")
+
+                const logedInUser = usersArr.filter((e)=>e.email === emaillog && e.password === passLog) 
+                console.log(logedInUser)
+
+                localStorage.setItem("user" , JSON.stringify(logedInUser) )
 
                 SetIsloggedIn(!isLoggedin)
 

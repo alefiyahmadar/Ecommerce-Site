@@ -77,10 +77,14 @@ export const GetSignUp =()=>{
 
 
     }
+    useEffect(() => {
+        const storedUsers = localStorage.getItem('userArray');
+        if (storedUsers) {
+          setUserArray(JSON.parse(storedUsers));
+        }
+      }, []);
 
-    useEffect(()=>{
-        SignUpHandler()
-    },[])
+  
 
     
 
