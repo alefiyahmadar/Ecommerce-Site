@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate, NavLink, useLocation, Await, json } from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
@@ -10,27 +10,28 @@ export const GetLogin = () => {
     const { isLoggedin, SetIsloggedIn, loggedInUser, setLoggedInUser, objState, setState , isCarted , setIsCart} = useContext(CartContext)
     const [emaillog, setEmail] = useState("")
     const [passLog, setPassword] = useState("")
-    const { showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose , defaultUser} = useContext(CartContext)
+    const { showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose , defaultUser  , setDefault} = useContext(CartContext)
 
 
     const navigate = useNavigate()
     const location = useLocation()
+    
 
 
     const logInGuestHandler = () => {
 
-        SetIsloggedIn(!isLoggedin)
+        // SetIsloggedIn(!isLoggedin)
 
-        navigate(location.state.from.pathname)
+        // navigate(location.state.from.pathname)
 
-        setLoggedInUser({ ...loggedInUser, firstName: "John", lastName: "Doe", email: "johndoe@gmail.com" })
+        // setLoggedInUser({ ...loggedInUser, firstName: "John", lastName: "Doe", email: "johndoe@gmail.com"  })
 
       
-        const stringifyDefault = JSON.stringify(defaultUser)
+        // const stringifyDefault = JSON.stringify(defaultUser)
 
-        localStorage.setItem("user" , stringifyDefault)
+        // localStorage.setItem("user" , stringifyDefault)
 
-        setState(defaultUser)
+        // setState(defaultUser)
 
     }
 
@@ -64,8 +65,8 @@ export const GetLogin = () => {
 
                 console.log("truee")
 
-                const logedInUser = usersArr.filter((e)=>e.email === emaillog && e.password === passLog) 
-                console.log(logedInUser)
+                const logedInUser = usersArr.find((e)=>e.email === emaillog && e.password === passLog) 
+                
 
                 localStorage.setItem("user" , JSON.stringify(logedInUser) )
 
@@ -93,6 +94,7 @@ export const GetLogin = () => {
 
 
     }
+
 
 
     return (

@@ -31,6 +31,7 @@ const [userArray, setUserArray] = useState(users);
 const parseObj = JSON.parse(localStorage.getItem("user"))
 
 
+
 const [ objState , setState] = useState([parseObj])
 
 const [ cart , setCart ] = useState(localStorage.getItem("user") && localStorage.getItem("user").cart ? localStorage.getItem("user").cart : [])
@@ -45,6 +46,8 @@ const [defaultUser , setDefault] = useState({   _id: uuid(),
     updatedAt: formatDate(),
 cart:[],
 wishlist:[]})
+
+
 
 
 
@@ -129,6 +132,7 @@ useEffect(()=>{
 const AddToCartHandler = (item)=>{
     const newItm = {...item , isAddedToCart:true}
     const userData = JSON.parse(localStorage.getItem("user"))
+    
 
     setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:true} : e))
     
@@ -137,8 +141,21 @@ const AddToCartHandler = (item)=>{
     setCart([...cart , newItm ])
 
     const updateData = {...userData , cart:[...cart , newItm]}
+    
 
     localStorage.setItem("user", JSON.stringify(updateData));
+
+    const userArr = JSON.parse(localStorage.getItem("userArray"))
+    
+    const mapUserArr = userArr.map((e)=>{
+        if(e.email === userData.email && e.password === userData.password){
+
+        return {...e , cart:[...cart , newItm]}
+        }else{
+            return e
+        }
+    })
+    localStorage.setItem("userArray" , JSON.stringify(mapUserArr))
 
 
 
@@ -160,7 +177,20 @@ const AddToCartHandler = (item)=>{
     
 
     localStorage.setItem("user", JSON.stringify(userData));
+
+    const userArr = JSON.parse(localStorage.getItem("userArray"))
+
+    const mapUserArr = userArr.map((e)=>{
+        if(e.email === userData.email && e.password === userData.password){
+
+        return {...e , cart:e.cart.filter((e)=>e.title !== item.title)}
+        }else{
+            return e
+        }
+    })
     
+    
+    localStorage.setItem("userArray" , JSON.stringify(mapUserArr))
         
         
 
@@ -199,6 +229,21 @@ const AddToCartHandler = (item)=>{
 setState((prevItem)=>prevItem.map((e)=>item ? {...e , wishlist:[ ...e.wishlist,newItm]} : e))
 
 
+const userArr = JSON.parse(localStorage.getItem("userArray"))
+    
+    const mapUserArr = userArr.map((e)=>{
+        if(e.email === userData.email && e.password === userData.password){
+
+        return {...e , wishlist:[...wishList , newItm]}
+        }else{
+            return e
+        }
+    })
+
+
+    localStorage.setItem("userArray" , JSON.stringify(mapUserArr))
+
+
         setShowAlert(true)
         setAlertMsg( "Item added to wishlist")
     
@@ -206,6 +251,9 @@ setState((prevItem)=>prevItem.map((e)=>item ? {...e , wishlist:[ ...e.wishlist,n
     }
 
     const GetWishlistLength = getProducts.filter((e)=>e.isWished === true)
+
+
+
     
     const RemoveFromWishlist = (item)=>{
 
@@ -221,6 +269,24 @@ const userData = JSON.parse(localStorage.getItem("user"))
     
 
     localStorage.setItem("user", JSON.stringify(userData));
+
+
+
+    
+const userArr = JSON.parse(localStorage.getItem("userArray"))
+    
+const mapUserArr = userArr.map((e)=>{
+    if(e.email === userData.email && e.password === userData.password){
+
+    return {...e , wishlist:e.wishlist.filter((product)=>product.title !== item.title)}
+    }else{
+        return e
+    }
+})
+
+
+localStorage.setItem("userArray" , JSON.stringify(mapUserArr))
+
 
         setShowAlert(true)
         setAlertMsg( "Item removed from wishlist")
