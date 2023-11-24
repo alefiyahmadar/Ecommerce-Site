@@ -50,6 +50,8 @@ export const GetLogin = () => {
 
             const { encodedToken } = await res.json()
             console.log(encodedToken)
+
+            
             
 
             const checkUser = (JSON.parse(localStorage.getItem("user")))
