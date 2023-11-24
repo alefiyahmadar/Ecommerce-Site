@@ -19,7 +19,8 @@ import { CheckOut } from "./pages/checkout";
 
 function App() {
 
-  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce } = useContext(CartContext)
+  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce , defaultUser } = useContext(CartContext)
+
 const userCart = JSON.parse(localStorage.getItem("user")).cart
 const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
 
