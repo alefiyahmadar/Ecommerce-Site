@@ -1,7 +1,7 @@
 import "./App.css";
 import {NavLink, Route , Routes} from "react-router-dom"
 
-import Mockman from "mockman-js";
+
 
 import { HomePage } from "./pages/Home";
 import { ProductList } from "./pages/productList";
@@ -19,7 +19,7 @@ import { CheckOut } from "./pages/checkout";
 
 function App() {
 
-  const {getCartLength , GetWishlistLength ,  isLoggedin  , useReduce , defaultUser } = useContext(CartContext)
+  const {isLoggedin  , useReduce  } = useContext(CartContext)
 
 const userCart = JSON.parse(localStorage.getItem("user")).cart
 const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
@@ -52,7 +52,7 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
          
          <Routes>
           <Route path="/" element={<HomePage/>}></Route>
-          <Route path="/mockman" element={<Mockman/>}></Route>
+          
           <Route path="/productList" element={
             isLoggedin ? <ProductList/> :<AuthWrapper><ProductList/></AuthWrapper>
           

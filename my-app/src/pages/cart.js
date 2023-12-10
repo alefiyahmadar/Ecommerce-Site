@@ -1,12 +1,12 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { ProductCard } from "./productCard"
-import { json, useNavigate } from "react-router-dom"
+import { NavLink,  useNavigate } from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
 
 export const GetCart = ()=>{
 
-    const {getProducts  , getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan  , showAlert , alertMsg , handleAlertClose   , objState , setState } = useContext(CartContext)
+    const { getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan  , showAlert , alertMsg , handleAlertClose    } = useContext(CartContext)
 
     const navigate = useNavigate()
 
@@ -42,11 +42,12 @@ export const GetCart = ()=>{
 
     
     
-    
+
 
 
     return(<div style={{marginLeft:"2rem"}} >
-        <p>Cart</p>
+        <p style={{fontSize:"1.5rem"}}>Cart</p>
+
         <div className="product-grid" style={{ float:"right" , gridTemplateColumns: "repeat(3, 1fr)" , paddingBottom:"2rem" }}> 
 
        
@@ -54,13 +55,13 @@ export const GetCart = ()=>{
         {
            
 
-            userData.map((e)=>e.cart.map((e)=> <ProductCard {...e} isCart />))
+              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <ProductCard {...e} isCart />): <div style={{fontSize:"1.3rem"}}> <p>Cart Is Empty! <NavLink to={"/productList"}>Back To Store</NavLink> </p> </div>)
         }
         
         
         </div>
 
-        <div style={{boxShadow:"0 0 25px rgba(0, 0, 0, 0.20)" , width:"25rem" , position:"fixed"  , float :"right"  , paddingTop:"2rem" , paddingBottom:"2rem" , marginLeft:"2rem"}}>
+        <div style={{boxShadow:"0 0 25px rgba(0, 0, 0, 0.20)" , width:"25rem" , position:"fixed"  , float :"right"  , paddingTop:"2rem" , paddingBottom:"2rem" , marginLeft:"2rem" , display:userData.map((e)=>e.cart.length > 0 ? "block" : "none") }}>
                     <select onChange={coupanHandler}  value="k" style={{ marginBottom:"1rem"}}>
                         <option value="all">Apply Coupan</option>
                         <option value="20"> 20%off:NewUser</option>

@@ -9,6 +9,8 @@ export const ContextProvider =({children})=>{
 
 const [ getProducts , setProducts] = useState([])
 const [rangeValue , setRangeValue] = useState("0")
+const [isFiction , setIsFiction] = useState(false)
+const [isNonFic , setIsNonFic] = useState(false)
 const [filters , setFilter] = useState({categoryValue:[] , rating:"" , sort:""})
 const [isLoggedin , SetIsloggedIn] = useState(false)
 const [loggedInUser , setLoggedInUser] = useState({})
@@ -18,7 +20,7 @@ const [coupan ,setCoupan ] =useState(0)
 const [showCpn , setShowCpn] =useState("") 
 const [showAlert, setShowAlert] = useState(false);
 const [alertMsg , setAlertMsg] = useState("")
-const [isCarted , setIsCart] = useState(false)
+
 const [userArray, setUserArray] = useState(users);
 
 
@@ -28,11 +30,11 @@ const [userArray, setUserArray] = useState(users);
 
 
 
-const parseObj = JSON.parse(localStorage.getItem("user"))
 
 
 
-const [ objState , setState] = useState([parseObj])
+
+
 
 const [ cart , setCart ] = useState(localStorage.getItem("user") && localStorage.getItem("user").cart ? localStorage.getItem("user").cart : [])
 const [ wishList , setWishList] = useState( localStorage.getItem("user") && localStorage.getItem("user").wishlist ? localStorage.getItem("user").wishlist : [])
@@ -57,23 +59,6 @@ wishlist:[]})
 
 
 
-// const storedUsers = JSON.parse(localStorage.getItem('userArray'));
-//     if (storedUsers) {
-//       setUserArray(storedUsers);
-//     }
-
-// const initializeUsers = () => {
-//     const storedUsers = localStorage.getItem('usersArray');
-//     if (storedUsers) {
-//       setUserArray(JSON.parse(storedUsers));
-//     } else {
-//     //   // Initialize with a default user
-      
-//     //   setUserArray([defaultUser]);
-//     //   localStorage.setItem('usersArray', JSON.stringify([defaultUser]));
-//     }
-//   };
-
 
 
 const fetchData =async()=>{
@@ -95,7 +80,7 @@ setProducts(products)
 
 
 
-const serializedArr = JSON.stringify(users)
+
 
 
 
@@ -226,7 +211,7 @@ const AddToCartHandler = (item)=>{
         
     
         localStorage.setItem("user", JSON.stringify(updateData));
-setState((prevItem)=>prevItem.map((e)=>item ? {...e , wishlist:[ ...e.wishlist,newItm]} : e))
+
 
 
 const userArr = JSON.parse(localStorage.getItem("userArray"))
@@ -260,7 +245,7 @@ const userArr = JSON.parse(localStorage.getItem("userArray"))
 
         setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isWished:false}:e))
 
-const filterWish = wishList.filter((e)=>e.id !== item.id)
+
 
 
 const userData = JSON.parse(localStorage.getItem("user"))
@@ -314,8 +299,8 @@ const GetCategoryHandler =(event)=>{
 
     
 
+  
 
-    setFilter({...filters , categoryValue:[...filters.categoryValue , event.target.value]})
 
     const isSimilar = filters.categoryValue.find((e)=>e === event.target.value)
 
@@ -341,6 +326,7 @@ const clearBtn =()=>{
 
     setFilter({...filters , categoryValue:[] , sort:"" , rating:""})
     setRangeValue("0")
+    
     
 }
 const incrementHandler =(id) =>{
@@ -369,7 +355,8 @@ const decrementHandler =(id)=>{
 
 
     return(
-        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose  , objState , setState , isCarted , setIsCart , cart , setCart , userArray , setUserArray , defaultUser , setDefault}}>
+        <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose   
+         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic}}>
             {children}
         </CartContext.Provider>
     )

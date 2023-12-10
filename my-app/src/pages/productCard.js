@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
 
@@ -9,13 +9,11 @@ export const ProductCard =(item)=>{
      title,
     author,
     price,
-    
-    isAddedToCart,
-    isWished, image , rating , quantity , isCart}=item
+    image , rating , quantity , isCart}=item
 
   
 
-    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler  , isCarted , setIsCart , cart , setCart} = useContext(CartContext)
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler   , cart } = useContext(CartContext)
 
 const navigate = useNavigate()
 

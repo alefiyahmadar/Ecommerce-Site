@@ -1,19 +1,17 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { NavLink, json, useNavigate } from "react-router-dom"
-import { users } from "../backend/db/users"
-import { requiresAuth } from "../backend/utils/authUtils"
-import { parse } from "uuid"
+import { NavLink, useNavigate } from "react-router-dom"
+
 
 
 
 export const GetSignUp =()=>{
 
-    const [foo, setFoo] = useState([]);
+
 
     
 
-    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn  , objState , setState , userArray , setUserArray , defaultUser} = useContext(CartContext)
+    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn   , userArray , setUserArray } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -41,10 +39,10 @@ export const GetSignUp =()=>{
                 
 
 
-                const {createdUser ,encodedToken} = await res.json()
+                const {createdUser } = await res.json()
 
                     const serializedObj = JSON.stringify(createdUser)
-                    const  serializedToken = JSON.stringify(encodedToken)
+                    
 
                 
 

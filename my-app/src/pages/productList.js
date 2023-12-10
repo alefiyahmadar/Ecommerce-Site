@@ -8,7 +8,7 @@ export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn ,showAlert , setShowAlert , alertMsg , setAlertMsg ,handleAlertClose  } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters } = useContext(CartContext)
 
 
         
@@ -41,21 +41,23 @@ export const ProductList =()=>{
 
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
 
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="fiction"  onChange={GetCategoryHandler}></input>
+             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}} checked={filters.categoryValue.find((e)=> e === "fiction") ? true : false} type="checkbox" value="fiction"   onChange={GetCategoryHandler} ></input>
 
              <label htmlFor="fiction"  >Fiction</label>
 
              
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="nonfiction" onChange={GetCategoryHandler}></input>
+             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="nonfiction" 
+             checked={filters.categoryValue.find((e)=> e === "nonfiction") ? true : false}
+              onChange={GetCategoryHandler}></input>
     
              <label htmlFor="nonfiction"  >Non-Fiction</label>
              
             
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }} >
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="horror" onChange={GetCategoryHandler}></input>
+             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="horror" checked={filters.categoryValue.find((e)=> e === "horror") ? true : false} onChange={GetCategoryHandler}></input>
              <label htmlFor="horror" >Horror</label>
             
              </div>
@@ -68,14 +70,14 @@ export const ProductList =()=>{
              
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
 
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="LowToHigh" name="sort" onChange={sortHandler}></input>
+             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="LowToHigh" name="sort" onChange={sortHandler} checked={filters.sort === "LowToHigh" ? true : false }></input>
 
              <label htmlFor="LowToHigh" >Price - Low To High</label>
 
              
              </div>
              <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="HighToLow" name="sort" onChange={sortHandler}></input>
+             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="HighToLow" name="sort" onChange={sortHandler} checked={filters.sort === "HighToLow" ? true : false }></input>
     
              <label htmlFor="HighToLow" >Price - High To Low</label>
              

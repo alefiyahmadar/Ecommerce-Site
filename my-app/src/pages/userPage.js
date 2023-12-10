@@ -3,7 +3,7 @@ import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
 
 export const GetUserPage = ()=>{
-const {loggedInUser   , SetIsloggedIn , adressArr , setAddressArr  , objState , setState } = useContext(CartContext)
+const { SetIsloggedIn , adressArr , setAddressArr   } = useContext(CartContext)
 const [showadress , setAdress] = useState(false)
 const [newAdress , setNewAdress] = useState(false)
 
@@ -85,7 +85,7 @@ const removeAdress =(id)=>{
 
         <div  style={{ display:showadress ? "none" :"flex",  margin:"auto"   , flexDirection:"column" , textAlign:"left" , paddingLeft:"45%"}}>
 
-        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"1rem"}}><span style={{color:"grey"}}>Name</span> {user.someUserAttribute1} {user.someUserAttribute2}</p>
+        <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"1rem"}}><span style={{color:"grey"}}>Name</span> {user.firstName} {user.lastName}</p>
 
         <p style={{padding:"1rem" , fontSize:"large" , fontWeight:"bold" , paddingTop:"0%"}}> <span style={{color:"grey"}}>Email</span> {user.email}</p>
 

@@ -28,7 +28,7 @@ export const products = [
     horror: "horror",
     isAddedToCart:false,
     isWished:false  ,
-    image:"https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+    image:"https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/51H5MlNiNpL._SY445_SX342_.jpg",
     rating:4.5,
     quantity:1
   },

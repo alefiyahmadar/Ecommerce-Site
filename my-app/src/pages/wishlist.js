@@ -5,7 +5,7 @@ import { AlertMessage } from "./alertMsg"
 
 export const GetWishList =()=>{
 
-const {getProducts , showAlert , alertMsg , handleAlertClose , objState , setState} = useContext(CartContext)
+const { showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
 
 
 
