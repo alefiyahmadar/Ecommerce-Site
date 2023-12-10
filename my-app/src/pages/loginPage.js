@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { useNavigate, NavLink, useLocation, Await, json } from "react-router-dom"
+import { useNavigate, NavLink, useLocation} from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
 
 
@@ -22,6 +22,7 @@ export const GetLogin = () => {
         SetIsloggedIn(!isLoggedin)
 
         navigate(location.state.from.pathname)
+        
 
         
 
@@ -47,12 +48,12 @@ export const GetLogin = () => {
             
 
             const usersArr = JSON.parse(localStorage.getItem("userArray"))
-            console.log(usersArr)
+          
             
             
             if(usersArr.find((e)=>e.email === emaillog && e.password === passLog)){
 
-                console.log("truee")
+        
 
                 const logedInUser = usersArr.find((e)=>e.email === emaillog && e.password === passLog) 
                 
@@ -61,12 +62,12 @@ export const GetLogin = () => {
 
                 SetIsloggedIn(!isLoggedin)
 
-                navigate("/productList")
+                navigate(location.state.from.pathname)
                 
 
             }else{
 
-                console.log("not verified")
+               
                 setEmail("")
                 setPassword("")
                 setShowAlert(true)
@@ -98,10 +99,10 @@ export const GetLogin = () => {
 
                 <input type="password" placeholder="Password" style={{ marginBottom: "1.5rem", padding: "0.7rem", borderRadius: "0.5rem", outline: "none" }} onChange={(e) => setPassword(e.target.value)} value={passLog} />
 
-                <button style={{ padding: "0.5rem", backgroundColor: "violet", border: "none", color: "white", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem" }} onClick={loginUser} >Login</button>
+                <button style={{ padding: "0.5rem", backgroundColor: "#a855f7", border: "none", color: "white", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem" }} onClick={loginUser} >Login</button>
 
 
-                <button onClick={logInGuestHandler} style={{ padding: "0.5rem", backgroundColor: "white", border: "1px solid violet", color: "violet", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem", marginTop: "1.5rem" }} > Login as Guest</button>
+                <button onClick={logInGuestHandler} style={{ padding: "0.5rem", backgroundColor: "white", border: "1px solid violet", color: "#a855f7", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem", marginTop: "1.5rem" }} > Login as Guest</button>
 
                 <p>Dont have an acoount? <NavLink to="/signup">Sign Up</NavLink></p>
 

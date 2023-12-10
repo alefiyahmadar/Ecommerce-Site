@@ -55,7 +55,7 @@ export const GetCart = ()=>{
         {
            
 
-              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <ProductCard {...e} isCart />): <div style={{fontSize:"1.3rem"}}> <p>Cart Is Empty! <NavLink to={"/productList"}>Back To Store</NavLink> </p> </div>)
+              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <ProductCard {...e} isCart />): <h2 style={{display:"flex" , width:"50rem" , justifyContent:"center" , paddingTop:"4rem"}}>Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
         }
         
         

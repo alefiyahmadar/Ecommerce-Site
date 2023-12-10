@@ -123,7 +123,7 @@ style={{  position:"fixed" , marginTop:"2rem" , paddingLeft:"4rem"}}
         
         
 
-        <button style={{padding:"1rem" , backgroundColor:"#c084fc" , border:"none" , borderRadius:"0.5rem" , fontSize:"large" , fontWeight:"bold" , color:"#faf5ff" ,width:"40%" , marginTop:"1rem"}}>Place Order</button>
+        <button style={{padding:"1rem" , backgroundColor:"#a855f7" , border:"none" , borderRadius:"0.5rem" , fontSize:"large" , fontWeight:"bold" , color:"#faf5ff" ,width:"40%" , marginTop:"1rem"}}>Place Order</button>
 </div>
 
 

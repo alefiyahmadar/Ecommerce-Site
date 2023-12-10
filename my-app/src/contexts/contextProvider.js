@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { users } from "../backend/db/users";
 import { formatDate } from "../backend/utils/authUtils";
 import {v4 as uuid} from "uuid"
+import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext()
 
@@ -22,10 +23,12 @@ const [showAlert, setShowAlert] = useState(false);
 const [alertMsg , setAlertMsg] = useState("")
 
 const [userArray, setUserArray] = useState(users);
+const [filterValue , setFilterValue] = useState("")
+const [getFilterData , setFilterData] = useState(false)
 
 
 
-
+const navigate = useNavigate()
 
 
 
@@ -48,7 +51,6 @@ const [defaultUser , setDefault] = useState({   _id: uuid(),
     updatedAt: formatDate(),
 cart:[],
 wishlist:[]})
-
 
 
 
@@ -111,6 +113,26 @@ useEffect(()=>{
   
     
 },[])
+
+ 
+const SearchBarHandler =(e)=>{
+
+
+    isLoggedin === false ?  setShowAlert(true) || setAlertMsg("Please Login") : navigate("/productList")
+
+    console.log(typeof e.target.value)
+    setFilterData(true)
+    setFilterValue(e.target.value)
+
+    const filterData = getSortedData.filter((item)=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
+    console.log(filterData)
+
+
+
+
+
+
+}
 
 
 
@@ -321,6 +343,10 @@ setFilter({...filters , sort:e.target.value})
 
 const getSortedData = filters.sort ? GetCategoryData.sort((a,b)=>filters.sort === "LowToHigh" ? a.price - b.price : b.price - a.price) :GetCategoryData
 
+const getDataFiltered = getFilterData === true ? getSortedData.filter((item)=>item.title.toLowerCase().includes(filterValue.toLowerCase())) : getSortedData
+
+console.log(getDataFiltered)
+
 
 const clearBtn =()=>{
 
@@ -356,7 +382,7 @@ const decrementHandler =(id)=>{
 
     return(
         <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose   
-         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic}}>
+         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered}}>
             {children}
         </CartContext.Provider>
     )

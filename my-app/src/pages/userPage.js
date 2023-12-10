@@ -78,10 +78,10 @@ const removeAdress =(id)=>{
 
        
 
-        <button style={{ backgroundColor:showadress ? "white" :"violet", width:"20%" , padding:"0.7rem"  , fontSize:"large" , fontWeight:"bold" , border:"none" , borderBottom:"0.5px grey solid" , color:showadress?"black" :"white"}} onClick={()=>setAdress(!showadress)} >Profile</button>
+        <button style={{ backgroundColor:showadress ? "white" :"#a855f7", width:"20%" , padding:"0.7rem"  , fontSize:"large" , fontWeight:"bold" , border:"none" , borderBottom:"0.5px grey solid" , color:showadress?"black" :"white"}} onClick={()=>setAdress(!showadress)} >Profile</button>
         
         
-        <button style={{width:"20%" , padding:"0.7rem" , backgroundColor:showadress ? "violet" :"white" , fontSize:"large" , fontWeight:"bold" , border:"none" , borderBottom:"0.5px grey solid" , color:showadress ? "white" :"black"}} onClick={()=>setAdress(!showadress)} >Address</button>
+        <button style={{width:"20%" , padding:"0.7rem" , backgroundColor:showadress ? "#a855f7" :"white" , fontSize:"large" , fontWeight:"bold" , border:"none" , borderBottom:"0.5px grey solid" , color:showadress ? "white" :"black"}} onClick={()=>setAdress(!showadress)} >Address</button>
 
         <div  style={{ display:showadress ? "none" :"flex",  margin:"auto"   , flexDirection:"column" , textAlign:"left" , paddingLeft:"45%"}}>
 

@@ -8,7 +8,7 @@ export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler , getSortedData , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters , getDataFiltered } = useContext(CartContext)
 
 
         
@@ -91,8 +91,12 @@ export const ProductList =()=>{
         
         <div  className="product-grid" style={{marginTop:"4rem" , marginRight:"2rem"}}>
 
+            
+
 {
-    getSortedData.map((item)=><ProductCard {...item}/>)
+ 
+ 
+      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 style={{display:"flex" , width:"50rem"}}>Sorry , Products are not available for chosen category.</h2>
 }
 </div>
 
