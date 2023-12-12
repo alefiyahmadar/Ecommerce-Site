@@ -62,7 +62,6 @@ wishlist:[]})
 
 
 
-
 const fetchData =async()=>{
 
 
