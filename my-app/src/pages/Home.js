@@ -7,7 +7,7 @@ import { AlertMessage } from "./alertMsg"
 
 export const HomePage =()=>{
 
-    const {setFilter , filters , showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose} =useContext(CartContext)
+    const {setFilter , filters , showAlert ,alertMsg  , handleAlertClose} =useContext(CartContext)
 
 const navigate = useNavigate()
 
