@@ -84,7 +84,7 @@ export const GetSignUp =()=>{
         if (storedUsers) {
           setUserArray(JSON.parse(storedUsers));
         }
-      }, []);
+      }, [setUserArray]);
 
   
 
