@@ -41,11 +41,11 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
 
           
         
-        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"2rem" , textDecoration:"none"}} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin ? "flex" : "none" ,  position: 'absolute' ,top:"3%" , padding:"0%" , margin:"0%" }}>
+        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"2rem" , textDecoration:"none"}} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin && userCart.length > 0  ? "flex" : "none" ,  position: 'absolute' ,top:"3%" , padding:"0%" , margin:"0%" }}>
           { userCart.length}</span>
-          <span style={{ display:isLoggedin ? "flex" : "none" , color:"white" , position:"absolute" , right:"15.5%" }}>₹{useReduce}</span></NavLink>
+          <span style={{ display:isLoggedin  && userCart.length > 0 ? "flex" : "none" , color:"white" , position:"absolute" , right:"15.5%" }}>₹{useReduce}</span></NavLink>
 
-        <NavLink to="/wishlist" style={{  paddingTop:"2rem" , textDecoration:"none" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin ? "flex" : "none"  , right:"10%" , top:"3%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
+        <NavLink to="/wishlist" style={{  paddingTop:"2rem" , textDecoration:"none" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin && userWishList.length > 0 ? "flex" : "none"  , right:"10%" , top:"3%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
 
         
         <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"4rem"  }}><img width="50" height="50" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>

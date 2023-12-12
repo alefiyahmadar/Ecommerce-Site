@@ -2,11 +2,12 @@ import { useContext } from "react"
 import {  useNavigate } from "react-router-dom"
 import { CartContext } from "../contexts/contextProvider"
 import {categories} from "../backend/db/categories"
+import { AlertMessage } from "./alertMsg"
 
 
 export const HomePage =()=>{
 
-    const {setFilter , filters} =useContext(CartContext)
+    const {setFilter , filters , showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose} =useContext(CartContext)
 
 const navigate = useNavigate()
 
@@ -20,7 +21,7 @@ navigate("/productList")
 }
 
 
-
+ 
     
 return(
     <div  >
@@ -43,6 +44,10 @@ return(
          <div>
             <p style={{fontSize:"1.4rem" , padding:"1rem"}}>Shop by categories</p>
             <div style={{display:"flex" , justifyContent:"space-around" , padding:"1rem" , marginLeft:"4rem" , marginRight:"4rem" , marginBottom:"2rem" , width:"50%" , margin:"auto"}}>
+            {
+                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+                
+            }
            
         
 {
