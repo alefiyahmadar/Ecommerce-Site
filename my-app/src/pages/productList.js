@@ -2,13 +2,13 @@ import { useContext } from "react"
 
 import { ProductCard } from "./productCard"
 import { CartContext } from "../contexts/contextProvider"
-import { AlertMessage } from "./alertMsg"
+
 
 export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters , getDataFiltered } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters , getDataFiltered , showFilter  } = useContext(CartContext)
 
 
         
@@ -16,16 +16,14 @@ export const ProductList =()=>{
 
 
 
-    return(<div>
-        <div className="sideBar" style={{margin:"0%"}}  >
-            {
-                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
-            }
+    return(<div className="productlistDiv">
+        <div className="sideBar" style={{margin:"0%" , display:showFilter ? "flex" : "none"}}  >
+           
 
 
-            
-            <div style={{display:"flex" , justifyContent:"space-around" , marginTop:"2rem" }}>
-             <p style={{margin:"0%" , marginRight:"75%"}}>Filters</p>< button style={{backgroundColor:"white" , border:"none" , fontSize:"large" , textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
+            <span >
+            <div style={{ display:"flex" , width:"60%" }}>
+             <p style={{margin:"0%" , marginRight:"75%" , fontSize:"large"}}>Filters</p>< button style={{backgroundColor:"white" , border:"none" , fontSize:"large" , textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
 </div>
 
             <h3>Rating</h3>
@@ -85,11 +83,13 @@ export const ProductList =()=>{
              </div>
 
 
-             
+             </span>
            
              </div>
+             
+             
         
-        <div  className="product-grid" style={{marginTop:"4rem" , marginRight:"2rem"}}>
+        <div  className="product-grid" style={{marginTop:"4rem" }}>
 
             
 
@@ -99,6 +99,7 @@ export const ProductList =()=>{
       getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 style={{display:"flex" , width:"50rem"}}>Sorry , Products are not available for chosen category.</h2>
 }
 </div>
+
 
     </div>)
 }

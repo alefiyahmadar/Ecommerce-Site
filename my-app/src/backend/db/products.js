@@ -116,4 +116,5 @@ export const products = [
     rating:4.7,
     quantity:1
   },
+  
 ];

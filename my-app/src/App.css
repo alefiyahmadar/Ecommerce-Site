@@ -1,19 +1,17 @@
 .App {
   text-align: center;
   font-family: 'Noto Sans', sans-serif;
+
+  
+  
+  
   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
+
+
 
 .App-header {
   background-color: #22201c;
@@ -53,10 +51,11 @@
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
   
   width: 80rem;
   float: right;
+  
   
 }
 
@@ -65,7 +64,7 @@
   border-radius: 1rem;
   padding-top:40px;
   padding-bottom: 40px;
-  height: 75vh; 
+
   padding-top: 4%;
   margin-left: 4rem;
 
@@ -111,7 +110,13 @@
 
 .nav{
 
+  
+  position: fixed;
+  overflow: hidden;
+  top: 0%;
+  
   background-color:#a855f7;
+
   
   padding-top: 0%;
   padding-bottom: 7%;
@@ -125,8 +130,8 @@
   text-align: left;
   margin: 0%;
   float: left;
-  width: 25rem;
-  height: 100rem;
+  width: 20rem;
+  height: 10rem;
   padding-left: 2rem;
   
   position: fixed;
@@ -178,15 +183,15 @@
   }
   .homeMain{
 
-    margin-left: 0rem;
-    margin-right: 0%;
-    margin-top: 0rem;
+    
+    width: 100%;
+    display: flex;
   }
 
   .image-container{
-    position: relative;
+  
     width: 100%;
-    margin-top: 0%;
+  
     
   
     
@@ -199,8 +204,9 @@
     margin: auto;
     height: 70vh;
     
+    
  color:white;
- position: relative;
+
     
 
     
@@ -215,7 +221,7 @@
      ; height:200px ; border-radius:50%  ; justify-content:center ; box-shadow: 0 0 25px rgba(0, 0, 0, 0.25) ;  padding:30px ; overflow:hidden ; transition:transform 0.2s; cursor: pointer;
   }
   .circular:hover {
-    transform: scale(1.1); /* Apply scale transformation on hover */
+    transform: scale(1.1); 
   }
   .circleTitle{
 
@@ -229,33 +235,16 @@
   }
 
   
-  .homestorebtn{
 
-    display: flex;
-    margin-left: 20rem;
-    padding: 0.7rem;
-    width: 10%;
-    justify-content: center;
-    background-color: #a855f7;
-    border: none;
-    border-radius: 1rem;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: absolute;
-    cursor: pointer;
-  }
 
-  .homestorebtn:hover {
-    background-color: #22201c;
-  }
+ 
 
 .footer{
   display: flex;
 
   background-color: #22201c;
   width: 100%;
-  height: 30vh;
+  padding-bottom: 2rem;
   
   margin-top: 5rem;
   text-align: left;
@@ -318,3 +307,431 @@ margin-left: 2rem;
   font-size: large;
 
 }
+@media only screen and (max-width: 425px) {
+  .App{
+    width: 100%;
+    
+    
+
+    
+  }
+  .nav{
+    padding: 1.5rem;
+    width: 100%;
+   position: fixed;
+   overflow: hidden;
+   z-index: 999;
+ 
+ 
+    
+    
+    
+  }
+  .navHeader{
+    margin: 0%;
+    padding: 1rem;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 0rem;
+    margin-left: 1rem;
+    
+
+  
+    
+
+
+  }
+  .navBtn{
+    
+
+   
+
+position: absolute;
+
+
+top: 20%;
+right:  5%;
+padding-top: 1rem;
+padding-right: 4rem;
+padding-bottom: 0%;
+margin: 0%;
+
+
+
+
+    
+  }
+  .navBtn span{
+    font-size: 10px;
+  
+  }
+  .navInput{
+    
+  
+    
+  display: flex;
+  
+margin-left: 5rem;
+  width: 50%;
+
+    
+  }
+
+  
+  .navMenue img{
+    
+display: flex;
+position: absolute;
+left: 15%;
+padding-top: 0.5rem;
+
+   
+    
+  }
+
+  .loginContainer{
+
+    
+    padding: 0.5rem;
+    margin: auto;
+  
+  
+  }
+  
+
+
+  .login{
+  
+    width: 5rem;
+    height: 10rem;
+  
+  
+    margin-top: 12rem;
+    font-size: 15px;
+    
+    padding-top: 2rem;
+
+  }
+  .login h2{
+    margin-top: 0%;
+    font-size: 16px;
+    
+  }
+  .login input{
+    
+    justify-content: center;
+
+  
+    
+      width: 100%;
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+  
+    
+  }
+  .login button{
+    
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    
+    padding: 4px;
+    font-size: 10px;
+    
+    background-color: #a855f7;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    
+
+  }
+  .login p{
+    
+
+    width: 100%;
+
+    font-size: 10px;
+    
+  
+  }
+  .homeMain{
+    display: flex;
+
+    width: 100%;
+
+  }
+  .homeMain h3{
+    
+    width: 100%;
+    text-align: left;
+    margin-top: 10rem;
+    padding: 1.5rem;
+    font-size: 16px;
+    padding-bottom:0.5rem ;
+
+    
+    color: white;
+    
+    
+    
+  }
+  .homeMain h2{
+    text-align: left;
+    padding: 1.5rem;
+    margin-top: 0%;
+    padding-top: 0rem;
+    font-size: 15px;
+    
+    color: white;
+    
+
+  }
+
+   
+    .homeMain button{
+
+      margin-top: 1rem;
+      display: flex;
+      margin-left: 2rem;
+      padding: 0.5rem;
+      background-color: #a855f7;
+      border: none;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 3rem;
+      
+      
+    }
+     .home-bg{
+
+
+      background: url("https://img.freepik.com/premium-psd/high-angle-book-mock-up-with-glasses-coffee_23-2148657172.jpg?w=900");
+      width: 100%;
+      height: 80%;
+    overflow: hidden;
+      margin-top: 7rem;
+     }
+    .circular{
+
+      margin-top: 2rem;
+      
+    }
+    .circular:hover {
+      transform: scale(1.1); 
+    }
+    
+
+    .footerUl{
+      width: 100%;
+      list-style: none;
+    
+    
+    }
+    .footerUl p {
+      color: white;
+      
+    }
+    .sideBar{
+
+      padding-top: 8.5rem;
+      padding-left: 2%;
+      position: fixed;
+      width: 50%;
+      z-index: 500;
+      height: 100%;
+      
+      
+    }
+    .sideBar span{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+
+      background-color: white;
+      
+      padding: 1rem;
+      
+    
+
+    }
+    .productlistDiv{
+      display: flex;
+    
+      margin: auto;
+  
+      
+
+    }
+  
+    .product-grid{
+
+    padding-top: 25%;
+    
+margin-right: 2rem;
+padding-right: 1rem;
+padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  grid-gap: 1rem;
+    
+    
+      
+      
+      
+    }
+    .product-card{
+
+    
+      display: flex;
+      
+      flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        
+        
+        
+        padding-bottom: 10%;
+        
+      
+        text-align: center;
+        width: 10rem;
+      
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+        margin-left: 2rem;
+        
+        
+        
+    
+
+    }
+    .product-card span{
+      
+justify-content: left;
+padding: 0.5rem;
+font-size: 14px;
+
+
+      
+
+    }
+    .product-card span p{
+      background-color: red;
+      text-align: center;
+      padding: 5px;
+      color: white;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      
+    }
+    .product-card img{
+      width: 100%;
+      
+      max-width: 100%;
+  flex: 1;
+    }
+    .product-card p{
+      margin: 0%;
+    }
+
+    .item-title{
+
+      padding-left: 5%;
+    }
+    .item-author{
+      padding-left: 5%;
+    }
+    .item-price{
+      padding-left: 5%;
+    }
+    .Cartbtn{
+      font-size: 14px;
+      padding: 0.5rem;
+    
+      width: 90%;
+        margin: auto;
+        margin-top: 0.5rem;
+        
+      
+    }
+  
+
+
+
+    .heart-button {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      transform: rotate(-45deg);
+      background-color: red;
+      margin: 0%;
+      margin-left: 1rem;
+      z-index: 1;
+    
+    }
+    
+    .heart-button::before,
+    .heart-button::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+    }
+    
+    .heart-button::before {
+      top: -10px;
+      left: 0;
+    }
+    
+    .heart-button::after {
+      top: 0;
+      left: 10px;
+    }
+    .heartSpan{
+      position: absolute;
+    }
+    .alert{
+
+    
+      font-size: 12px;
+      padding: 0.5rem;
+      border-radius: 0%;
+    
+    } 
+    
+
+.cartBill{
+
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+  width: 10rem;
+  position: fixed;
+  float: right;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-left: 2rem;
+  margin-top: 5rem;
+
+
+}
+.cartProduct{
+
+
+  
+  
+    
+  
+}
+
+  
+}
+

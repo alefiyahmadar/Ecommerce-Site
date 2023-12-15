@@ -48,7 +48,7 @@ export const GetCart = ()=>{
     return(<div style={{marginLeft:"2rem"}} >
         <p style={{fontSize:"1.5rem"}}>Cart</p>
 
-        <div className="product-grid" style={{ float:"right" , gridTemplateColumns: "repeat(3, 1fr)" , paddingBottom:"2rem" }}> 
+        <div className="product-grid cartProduct" > 
 
        
 
@@ -61,7 +61,7 @@ export const GetCart = ()=>{
         
         </div>
 
-        <div style={{boxShadow:"0 0 25px rgba(0, 0, 0, 0.20)" , width:"25rem" , position:"fixed"  , float :"right"  , paddingTop:"2rem" , paddingBottom:"2rem" , marginLeft:"2rem" , display:userData.map((e)=>e.cart.length > 0 ? "block" : "none") }}>
+        <div className="cartBill" style={{ display:userData.map((e)=>e.cart.length > 0 ? "block" : "none" )}}>
                     <select onChange={coupanHandler}  value="k" style={{ marginBottom:"1rem"}}>
                         <option value="all">Apply Coupan</option>
                         <option value="20"> 20%off:NewUser</option>

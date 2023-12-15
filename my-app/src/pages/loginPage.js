@@ -15,21 +15,21 @@ export const GetLogin = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    localStorage.setItem("user" , JSON.stringify(defaultUser))
+    
 
     const logInGuestHandler = () => {
 
         SetIsloggedIn(!isLoggedin)
 
-        navigate(location.state.from.pathname)
+        navigate("/productList")
         
 
         
 
       
-        const stringifyDefault = JSON.stringify(defaultUser)
+       const defaultUser =  JSON.parse(localStorage.getItem("userArray")).find((e)=>e.password === "adarshbalika")
 
-        localStorage.setItem("user" , stringifyDefault)
+        localStorage.setItem("user" , JSON.stringify(defaultUser))
 
         
 
@@ -62,7 +62,7 @@ export const GetLogin = () => {
 
                 SetIsloggedIn(!isLoggedin)
 
-                navigate(location.state.from.pathname)
+                navigate("/productList")
                 
 
             }else{
@@ -88,21 +88,21 @@ export const GetLogin = () => {
 
 
     return (
-        <div>
+        <div className="loginContainer">
             <div className="login">
                 <h2>Log In</h2>
 
 
-                <input type="email" placeholder="Email" style={{ marginBottom: "1.5rem", padding: "0.7rem", borderRadius: "0.5rem", outline: "none" }} onChange={(e) => setEmail(e.target.value)} value={emaillog} />
+                <input type="email" placeholder="Email" style={{  outline: "none" }} onChange={(e) => setEmail(e.target.value)} value={emaillog} />
 
 
 
-                <input type="password" placeholder="Password" style={{ marginBottom: "1.5rem", padding: "0.7rem", borderRadius: "0.5rem", outline: "none" }} onChange={(e) => setPassword(e.target.value)} value={passLog} />
+                <input type="password" placeholder="Password" style={{ outline: "none" }} onChange={(e) => setPassword(e.target.value)} value={passLog} />
 
-                <button style={{ padding: "0.5rem", backgroundColor: "#a855f7", border: "none", color: "white", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem" }} onClick={loginUser} >Login</button>
+                <button  onClick={loginUser} >Login</button>
 
 
-                <button onClick={logInGuestHandler} style={{ padding: "0.5rem", backgroundColor: "white", border: "1px solid violet", color: "#a855f7", fontSize: "large", fontWeight: 'bold', borderRadius: "1rem", marginTop: "1.5rem" }} > Login as Guest</button>
+                <button onClick={logInGuestHandler} style={{backgroundColor:"white" , color:"#a855f7" , border:"1px #a855f7 solid"}} > Login as Guest</button>
 
                 <p>Dont have an acoount? <NavLink to="/signup">Sign Up</NavLink></p>
 

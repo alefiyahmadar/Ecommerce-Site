@@ -11,7 +11,7 @@ export const GetSignUp =()=>{
 
     
 
-    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn   , userArray , setUserArray } = useContext(CartContext)
+    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn   , userArray , setUserArray ,setCurrentUser,setCurrentUserArr } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -49,6 +49,9 @@ export const GetSignUp =()=>{
 
               localStorage.setItem("user" , serializedObj)
 
+              setCurrentUser(JSON.parse(localStorage.getItem("user")))
+
+
               
 
               const userIn = JSON.parse(localStorage.getItem("user"))
@@ -57,6 +60,7 @@ export const GetSignUp =()=>{
 
               setUserArray(updatedUserArray);
     localStorage.setItem('userArray', JSON.stringify(updatedUserArray));
+    setCurrentUserArr( JSON.parse(localStorage.getItem("userArray")))
 
               
 
@@ -75,16 +79,16 @@ export const GetSignUp =()=>{
 
 
     }
-    useEffect(() => {
-    
-    
-        
 
+    useEffect(()=>{
+
+        
         const storedUsers = localStorage.getItem('userArray');
         if (storedUsers) {
           setUserArray(JSON.parse(storedUsers));
         }
-      }, [setUserArray]);
+    },[setUserArray])
+   
 
   
 

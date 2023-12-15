@@ -19,36 +19,47 @@ import { CheckOut } from "./pages/checkout";
 
 function App() {
 
-  const {isLoggedin  , useReduce , SearchBarHandler  } = useContext(CartContext)
+  const {isLoggedin  , useReduce , SearchBarHandler  ,showFilter , setShowFilter } = useContext(CartContext)
 
 const userCart = JSON.parse(localStorage.getItem("user")).cart
 const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
 
   return (
-    <div className="App">
+    <div className="App"   >
 
-      <nav className="nav">
+      <nav className="nav"   >
 
 
       
     
-        <div style={{display:"flex" , float:"right" , justifyContent:"space-around" , paddingRight:"4rem"  }}>
+        <div className="nav-container" >
 
 
-        <p style={{color:"white" , fontSize:"2rem" , padding:"1rem" ,paddingLeft:"5rem" , paddingRight:"70rem" ,paddingBottom:"0%", fontWeight:"bold" }}>LiteraryLinx <input onChange={(e)=>SearchBarHandler(e)} placeholder="Search for product"   type="search" style={{ display:"flex" , margin:"auto" , marginLeft:"17%" , width:"30%" , padding:"0.6rem"  , border:"none" , borderRadius:"1rem" , position:"absolute" , top:"8%"   }} /> </p>
+        <p className="navHeader">LiteraryLinx </p>
+
+        <span className="navMenue" onClick={showFilter ? ()=>setShowFilter(false): ()=>setShowFilter(true)} ><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FFFFFF/menu--v6.png" alt="menu--v6"/></span>
+
+
+        
+
+
+
+        <input className="navInput" onChange={(e)=>SearchBarHandler(e)} placeholder="Search for product"   type="search" style={{  padding:"0.6rem"  , border:"none" , borderRadius:"1rem"     }} /> 
 
     
 
-          
+          <span className="navBtn"> 
         
-        <NavLink to="/cart" style={{ paddingTop:"2rem" , paddingRight:"2rem" , textDecoration:"none"}} ><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin && userCart.length > 0  ? "flex" : "none" ,  position: 'absolute' ,top:"3%" , padding:"0%" , margin:"0%" }}>
+        <NavLink className="cartNav" to="/cart" style={{ paddingTop:"2rem" , paddingRight:"1rem" , textDecoration:"none"}} ><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin && userCart.length > 0  ? "flex" : "none" ,  position: 'absolute' ,top:"20%" , padding:"0%" , margin:"0%" }}>
           { userCart.length}</span>
-          <span style={{ display:isLoggedin  && userCart.length > 0 ? "flex" : "none" , color:"white" , position:"absolute" , right:"15.5%" }}>₹{useReduce}</span></NavLink>
+          <span style={{ display:isLoggedin  && userCart.length > 0 ? "flex" : "none" , color:"white" , position:"absolute" , top:"90%"  }}>₹{useReduce}</span></NavLink>
 
-        <NavLink to="/wishlist" style={{  paddingTop:"2rem" , textDecoration:"none" }}><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin && userWishList.length > 0 ? "flex" : "none"  , right:"10%" , top:"3%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
+        <NavLink to="/wishlist" style={{  paddingTop:"2rem" , textDecoration:"none" }}><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin && userWishList.length > 0 ? "flex" : "none"   , top:"3%" , left:"20%" , top:"20%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
 
         
-        <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"4rem"  }}><img width="50" height="50" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
+        <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"1rem"  }}><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
+
+        </span>
         </div>
       </nav>
     

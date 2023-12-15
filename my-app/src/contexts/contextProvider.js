@@ -25,6 +25,11 @@ const [alertMsg , setAlertMsg] = useState("")
 const [userArray, setUserArray] = useState(users);
 const [filterValue , setFilterValue] = useState("")
 const [getFilterData , setFilterData] = useState(false)
+const [currentUser, setCurrentUser] = useState(null);
+const [currentUserArr , setCurrentUserArr] = useState(null)
+const [showFilter , setShowFilter ] = useState(false)
+
+
 
 
 
@@ -38,9 +43,9 @@ const navigate = useNavigate()
 
 
 
-
 const [ cart , setCart ] = useState(localStorage.getItem("user") && localStorage.getItem("user").cart ? localStorage.getItem("user").cart : [])
 const [ wishList , setWishList] = useState( localStorage.getItem("user") && localStorage.getItem("user").wishlist ? localStorage.getItem("user").wishlist : [])
+
 
 const [defaultUser , setDefault] = useState({   _id: uuid(),
     firstName: "Adarsh",
@@ -55,12 +60,15 @@ wishlist:[]})
 
 
 
+const storedUser = JSON.parse(localStorage.getItem("user"))
+const userArrayStored = JSON.parse(localStorage.getItem("userArray"))
 
 
 
+storedUser ? localStorage.setItem("user" , JSON.stringify(storedUser)) : localStorage.setItem("user" , JSON.stringify(defaultUser))
 
 
-
+userArrayStored ? localStorage.setItem("userArray" , JSON.stringify(userArrayStored)) : localStorage.setItem("userArray" , JSON.stringify(userArray))
 
 const fetchData =async()=>{
 
@@ -103,15 +111,31 @@ console.log(e)
 
 useEffect(()=>{
     
-  
+    
+    
+
+// const storedUser = localStorage.getItem("user")
+// const storedUserArray = localStorage.getItem("userArray")
+   
+
+//     !storedUser ? localStorage.setItem("user" , JSON.stringify(defaultUser)): setCurrentUser(JSON.parse(storedUser));
+
+
+//     !storedUserArray ? localStorage.setItem("userArray" , JSON.stringify(userArray)) : setCurrentUserArr(JSON.parse(storedUserArray)) 
 
     fetchData()
     
+   
+    
+
+      
 
 
   
     
-},[])
+},[setCurrentUser])
+
+
 
  
 const SearchBarHandler =(e)=>{
@@ -151,6 +175,8 @@ const AddToCartHandler = (item)=>{
 
     localStorage.setItem("user", JSON.stringify(updateData));
 
+
+    
     const userArr = JSON.parse(localStorage.getItem("userArray"))
     
     const mapUserArr = userArr.map((e)=>{
@@ -370,7 +396,7 @@ const decrementHandler =(id)=>{
 
 }
 
-   const useReduce = JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
+   const useReduce =  JSON.parse(localStorage.getItem("user")).cart.reduce((acc ,curr)=>acc + curr.price * curr.quantity , 0)
     
    const getCartLength =  getProducts.filter((e)=>e.isAddedToCart === true) 
 
@@ -381,7 +407,7 @@ const decrementHandler =(id)=>{
 
     return(
         <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose   
-         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered}}>
+         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered , setCurrentUser , setCurrentUserArr , showFilter , setShowFilter}}>
             {children}
         </CartContext.Provider>
     )

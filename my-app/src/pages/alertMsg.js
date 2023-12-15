@@ -7,7 +7,7 @@ export const AlertMessage = ({ message, onClose }) => {
     const timer = setTimeout(() => {
       setVisible(false);
       onClose();
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [onClose]);

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
+import { AlertMessage } from "./alertMsg"
 
 export const ProductCard =(item)=>{
 
@@ -13,7 +14,7 @@ export const ProductCard =(item)=>{
 
   
 
-    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler   , cart } = useContext(CartContext)
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler   , cart , showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
 
 const navigate = useNavigate()
 
@@ -32,17 +33,24 @@ console.log(cart)
 
     return(<div key={_id} className="product-card"  >
 
-      <div style={{display:"flex" , justifyContent:"space-between"}}>
-      <button className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
-      <p style={{backgroundColor:"red"  , color:"white" , borderRadius:"1rem" , padding:"0.5rem" , marginBlock:"0%" ,marginBlockEnd:"2%" , width:"3rem"  , fontWeight:"bold" , justifyContent:"center" , paddingBottom:"0%" , marginRight:"2rem"}}>{rating}⭐</p>
-</div>
+{
+                showAlert &&    <AlertMessage  message={alertMsg} onClose={handleAlertClose} />
+            }
+
+    <span className="heartSpan">
+      <button  className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
+      </span>
+      <span style={{display:"flex" , marginBlock:"0%" , justifyContent:"right"}} > <p>{rating}⭐</p></span>
+
        
 
-        <img style={{display:"flex" , width:"80%" , margin:"auto"}} src={image} alt="" onClick={()=>navigate(`/individual/${_id}`)}></img>
+        <img  src={image} alt="" onClick={()=>navigate(`/individual/${_id}`)}></img>
         
         <h3  className="item-title" >{title}  </h3>
-        <p className="item-author">{author}</p>
-        <p className="item-price">₹{price}</p>
+        <h4 className="item-author">{author}</h4>
+        <p className="item-price">₹{price - 50}<span style={{color:"grey" , textDecoration:"line-through"}}>{price}</span></p>
+    
+        
         {
             isCart && 
         
