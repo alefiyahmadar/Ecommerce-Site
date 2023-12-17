@@ -4,9 +4,12 @@ import { ProductCard } from "./productCard"
 import { AlertMessage } from "./alertMsg"
 import { NavLink } from "react-router-dom"
 
+import { WishlistCard } from "../cards/wishlistCard"
+
+
 export const GetWishList =()=>{
 
-const { showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
+const { showAlert , alertMsg , handleAlertClose  } = useContext(CartContext)
 
 
 
@@ -15,16 +18,16 @@ const userData = JSON.parse(localStorage.getItem("user")).wishlist
 
 
 console.log(userData)
-    return(<div>
-        <p>wishlist</p>
+    return(<div className="cartContainer" >
+        <p className="wishHeader">Wishlist <span>({userData.length})</span></p>
 
-        <div className="product-grid" style={{margin:"auto" , width:"90%"}}>
+        <ul className="cartProduct" >
             {
                 
 
-               userData.length > 0 ? userData.map(((e)=> <ProductCard {...e} />)) : <h2 style={{display:"flex" , width:"90rem" , justifyContent:"center" , paddingTop:"4rem"}}>Wishlist is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>
+               userData.length > 0 ? userData.map(((e)=> <WishlistCard {...e} />)) : <h2 >Wishlist is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>
             }
-        </div>
+        </ul>
         {
                 showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
                 

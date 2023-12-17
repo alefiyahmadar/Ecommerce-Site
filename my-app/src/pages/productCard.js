@@ -48,7 +48,7 @@ console.log(cart)
         
         <h3  className="item-title" >{title}  </h3>
         <h4 className="item-author">{author}</h4>
-        <p className="item-price">₹{price - 50}<span style={{color:"grey" , textDecoration:"line-through"}}>{price}</span></p>
+        <p className="item-price">₹{price - 50}<span style={{color:"grey" , textDecoration:"line-through"}}>₹{price}</span></p>
     
         
         {

@@ -22,8 +22,8 @@ export const ProductList =()=>{
 
 
             <span >
-            <div style={{ display:"flex" , width:"60%" }}>
-             <p style={{margin:"0%" , marginRight:"75%" , fontSize:"large"}}>Filters</p>< button style={{backgroundColor:"white" , border:"none" , fontSize:"large" , textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
+        <div style={{ display:"flex"  }}>
+             <h4 style={{margin:"0%" , fontSize:"large"}}>Filters</h4>< button style={{ textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
 </div>
 
             <h3>Rating</h3>
@@ -37,16 +37,16 @@ export const ProductList =()=>{
              
              
 
-             <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
+             <div >
 
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}} checked={filters.categoryValue.find((e)=> e === "fiction") ? true : false} type="checkbox" value="fiction"   onChange={GetCategoryHandler} ></input>
+             <input  checked={filters.categoryValue.find((e)=> e === "fiction") ? true : false} type="checkbox" value="fiction"   onChange={GetCategoryHandler} ></input>
 
              <label htmlFor="fiction"  >Fiction</label>
 
              
              </div>
-             <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="nonfiction" 
+             <div >
+             <input  type="checkbox" value="nonfiction" 
              checked={filters.categoryValue.find((e)=> e === "nonfiction") ? true : false}
               onChange={GetCategoryHandler}></input>
     
@@ -54,8 +54,8 @@ export const ProductList =()=>{
              
             
              </div>
-             <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }} >
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="checkbox" value="horror" checked={filters.categoryValue.find((e)=> e === "horror") ? true : false} onChange={GetCategoryHandler}></input>
+             <div  >
+             <input   type="checkbox" value="horror" checked={filters.categoryValue.find((e)=> e === "horror") ? true : false} onChange={GetCategoryHandler}></input>
              <label htmlFor="horror" >Horror</label>
             
              </div>
@@ -66,16 +66,16 @@ export const ProductList =()=>{
              <h3>Sort By</h3>
 
              
-             <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
+             <div >
 
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="LowToHigh" name="sort" onChange={sortHandler} checked={filters.sort === "LowToHigh" ? true : false }></input>
+             <input   type="radio" value="LowToHigh" name="sort" onChange={sortHandler} checked={filters.sort === "LowToHigh" ? true : false }></input>
 
              <label htmlFor="LowToHigh" >Price - Low To High</label>
 
              
              </div>
-             <div style={{display:"block" , fontSize:"large" , marginBottom:"0.5rem"  }}>
-             <input style={{width:"15px" , height:"15px" , marginLeft:"0.5rem"}}  type="radio" value="HighToLow" name="sort" onChange={sortHandler} checked={filters.sort === "HighToLow" ? true : false }></input>
+             <div >
+             <input  type="radio" value="HighToLow" name="sort" onChange={sortHandler} checked={filters.sort === "HighToLow" ? true : false }></input>
     
              <label htmlFor="HighToLow" >Price - High To Low</label>
              
@@ -96,7 +96,7 @@ export const ProductList =()=>{
 {
  
  
-      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 style={{display:"flex" , width:"50rem"}}>Sorry , Products are not available for chosen category.</h2>
+      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 >Sorry , Products are not available for chosen category.</h2>
 }
 </div>
 

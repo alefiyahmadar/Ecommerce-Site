@@ -44,7 +44,6 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
 
 
 
-        <input className="navInput" onChange={(e)=>SearchBarHandler(e)} placeholder="Search for product"   type="search" style={{  padding:"0.6rem"  , border:"none" , borderRadius:"1rem"     }} /> 
 
     
 
@@ -60,6 +59,10 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
         <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"1rem"  }}><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
 
         </span>
+
+
+        
+        <input className="navInput" onChange={(e)=>SearchBarHandler(e)} placeholder="Search for product"   type="search" style={{  padding:"0.6rem"  , border:"none" , borderRadius:"1rem"     }} /> 
         </div>
       </nav>
     

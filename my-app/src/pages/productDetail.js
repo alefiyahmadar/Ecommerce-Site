@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { useParams } from "react-router-dom"
 import { CartContext } from "../contexts/contextProvider"
-import { ProductCard } from "./productCard"
 import { AlertMessage } from "./alertMsg"
+import { ProductDetail } from "../cards/detailCard"
 
 export const GetProductDetail = ()=>{
 
@@ -14,14 +14,14 @@ const getItem = getProducts.filter((e)=>e._id === prodId)
 console.log(getItem)
 
 
-    return(<div style={{margin:"auto" , padding:"2rem" , marginTop:"2rem"  }}>
-        <div style={{ marginLeft:"35%" , width:"30rem" }}>
+    return(<div className="DetailContainer">
+        <div className="prodDetail">
         {
                 showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
             }
 
         {
-            getItem.map((e)=> <ProductCard { ...e}/>)
+            getItem.map((e)=> <ProductDetail { ...e}/>)
         }
         </div>
     </div>)

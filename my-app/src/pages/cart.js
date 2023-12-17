@@ -3,6 +3,7 @@ import { CartContext } from "../contexts/contextProvider"
 import { ProductCard } from "./productCard"
 import { NavLink,  useNavigate } from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
+import { CartCard } from "../cards/CartCard"
 
 export const GetCart = ()=>{
 
@@ -45,21 +46,21 @@ export const GetCart = ()=>{
 
 
 
-    return(<div style={{marginLeft:"2rem"}} >
-        <p style={{fontSize:"1.5rem"}}>Cart</p>
+    return(<div className="cartContainer"  >
+        <p >Cart</p>
 
-        <div className="product-grid cartProduct" > 
+        <ul className="cartProduct" > 
 
        
 
         {
            
 
-              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <ProductCard {...e} isCart />): <h2 style={{display:"flex" , width:"50rem" , justifyContent:"center" , paddingTop:"4rem"}}>Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
+              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <CartCard {...e}  />): <h2 >Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
         }
         
         
-        </div>
+        </ul>
 
         <div className="cartBill" style={{ display:userData.map((e)=>e.cart.length > 0 ? "block" : "none" )}}>
                     <select onChange={coupanHandler}  value="k" style={{ marginBottom:"1rem"}}>
