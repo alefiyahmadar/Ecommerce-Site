@@ -25,8 +25,7 @@ const [alertMsg , setAlertMsg] = useState("")
 const [userArray, setUserArray] = useState(users);
 const [filterValue , setFilterValue] = useState("")
 const [getFilterData , setFilterData] = useState(false)
-const [currentUser, setCurrentUser] = useState(null);
-const [currentUserArr , setCurrentUserArr] = useState(null)
+
 const [showFilter , setShowFilter ] = useState(false)
 
 
@@ -114,14 +113,6 @@ useEffect(()=>{
     
     
 
-// const storedUser = localStorage.getItem("user")
-// const storedUserArray = localStorage.getItem("userArray")
-   
-
-//     !storedUser ? localStorage.setItem("user" , JSON.stringify(defaultUser)): setCurrentUser(JSON.parse(storedUser));
-
-
-//     !storedUserArray ? localStorage.setItem("userArray" , JSON.stringify(userArray)) : setCurrentUserArr(JSON.parse(storedUserArray)) 
 
     fetchData()
     
@@ -133,7 +124,7 @@ useEffect(()=>{
 
   
     
-},[setCurrentUser])
+},[])
 
 
 
@@ -167,7 +158,7 @@ const AddToCartHandler = (item)=>{
     setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:true} : e))
     
     
-
+ 
     setCart([...cart , newItm ])
 
     const updateData = {...userData , cart:[...cart , newItm]}
@@ -383,10 +374,14 @@ const clearBtn =()=>{
 const incrementHandler =(id) =>{
 
     setProducts((prevItem)=>prevItem.map((e)=>e._id === id ? {...e , quantity:e.quantity + 1}:e))
+
     SetDiscount(discount + 20)
 
 
+
+
 }
+
 
 
 const decrementHandler =(id)=>{
@@ -407,7 +402,7 @@ const decrementHandler =(id)=>{
 
     return(
         <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose   
-         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered , setCurrentUser , setCurrentUserArr , showFilter , setShowFilter}}>
+         , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered  , showFilter , setShowFilter}}>
             {children}
         </CartContext.Provider>
     )

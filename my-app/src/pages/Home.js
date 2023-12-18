@@ -50,7 +50,7 @@ return(
                 
             }
            
-     <ul >   
+     <ul className="circularContainer" >   
 {
 categories.map((item)=><li onClick={()=>getPerHome(item.categoryName)} className="circular" key={item._id}>
     

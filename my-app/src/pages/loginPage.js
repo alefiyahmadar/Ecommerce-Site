@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { useNavigate, NavLink, useLocation} from "react-router-dom"
+import { useNavigate, NavLink} from "react-router-dom"
 import { AlertMessage } from "./alertMsg"
 
 
@@ -9,11 +9,11 @@ export const GetLogin = () => {
     const { isLoggedin, SetIsloggedIn} = useContext(CartContext)
     const [emaillog, setEmail] = useState("")
     const [passLog, setPassword] = useState("")
-    const { showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose , defaultUser  } = useContext(CartContext)
+    const { showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose   } = useContext(CartContext)
 
 
     const navigate = useNavigate()
-    const location = useLocation()
+    
 
     
 

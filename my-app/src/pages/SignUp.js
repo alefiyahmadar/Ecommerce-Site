@@ -11,7 +11,7 @@ export const GetSignUp =()=>{
 
     
 
-    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn   , userArray , setUserArray ,setCurrentUser,setCurrentUserArr } = useContext(CartContext)
+    const {loggedInUser , setLoggedInUser , isLoggedin , SetIsloggedIn   , userArray , setUserArray  } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -49,7 +49,7 @@ export const GetSignUp =()=>{
 
               localStorage.setItem("user" , serializedObj)
 
-              setCurrentUser(JSON.parse(localStorage.getItem("user")))
+            
 
 
               
@@ -60,7 +60,7 @@ export const GetSignUp =()=>{
 
               setUserArray(updatedUserArray);
     localStorage.setItem('userArray', JSON.stringify(updatedUserArray));
-    setCurrentUserArr( JSON.parse(localStorage.getItem("userArray")))
+    
 
               
 

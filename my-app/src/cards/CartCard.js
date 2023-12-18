@@ -9,10 +9,16 @@ const {_id ,
    price,
    image  , quantity } = item
 
-   const {incrementHandler , decrementHandler , AddToCartHandler , RemoveFromCart   } = useContext(CartContext)
+   const {incrementHandler , decrementHandler , AddToCartHandler , RemoveFromCart , getDataFiltered  } = useContext(CartContext)
 
    const navigate = useNavigate()
 
+   console.log(getDataFiltered)
+
+   
+
+   
+   
    
 
    return(<div className="cart">

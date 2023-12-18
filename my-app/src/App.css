@@ -330,10 +330,6 @@ margin-left: 2rem;
     
     
   }
-  .nav-container{
-
-    
-  }
   .navHeader{
     margin: 0%;
     padding: 1rem;
@@ -342,6 +338,7 @@ margin-left: 2rem;
     font-size: 20px;
     font-weight: bold;
     padding-left: 1rem;
+    
     
     
     
@@ -361,9 +358,9 @@ position: absolute;
 
 
 top: 5%;
-right:  1%;
+right:  5%;
 padding-top: 1rem;
-padding-right: 4rem;
+padding-right: 2rem;
 padding-bottom: 0%;
 margin: 0%;
 
@@ -381,24 +378,18 @@ margin: 0%;
   
     
   display: flex;
+  padding: 0.4rem;
+  width: 80%;
+  margin-left: 1rem;
+  border-radius: 1rem;
+  border: none;
   
-margin-left: 5rem;
-  width: 60%;
 
     
   }
 
   
-  .navMenue img{
-    
-display: flex;
-position: absolute;
-left: 15%;
-padding-top: 0.5rem;
-
-   
-    
-  }
+  
 
   .loginContainer{
 
@@ -525,12 +516,35 @@ padding-top: 0.5rem;
       width: 100%;
       height: 80%;
     overflow: hidden;
-      margin-top: 7rem;
+      margin-top: 6rem;
+     }
+
+     .circularContainer{
+
+      margin: 0%;
+      padding: 0%;
+
+
      }
     .circular{
 
       margin-top: 2rem;
+      width: 150px;
+      height: 150px;
       
+    }
+    .circleTitle{
+
+      font-size: 16px;
+    display: flex;
+    justify-content: center;
+    }
+    .circlePara{
+
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+    font-size: 14px;
     }
     .circular:hover {
       transform: scale(1.1); 
@@ -549,7 +563,7 @@ padding-top: 0.5rem;
     }
     .sideBar{
 
-      padding-top: 8.5rem;
+      padding-top: 6.5rem;
       padding-left: 2%;
       position: fixed;
       margin-left: 0%;
@@ -571,7 +585,7 @@ padding-top: 0.5rem;
       padding-left: 4rem;
       margin-left: 0%;
   position: absolute;
-  left: -10%;
+  left: -14%;
   padding-right: 1rem;
   
       
@@ -608,7 +622,8 @@ padding-top: 0.5rem;
     padding-top: 25%;
     
 
-padding-right: 2rem;
+padding-right: 1.5rem;
+
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
@@ -644,7 +659,7 @@ padding-right: 2rem;
       
         margin-bottom: 1.5rem;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-        margin-left: 2rem;
+        margin-left: 1rem;
         
         
         
@@ -752,6 +767,11 @@ font-size: 14px;
 
       width: 100%;
       padding-top: 9rem;
+    }
+    .cartContainer p{
+
+      font-size: 17px;
+      font-weight: 600;
     }
     
 
@@ -1002,13 +1022,15 @@ height: 10%;
 
 .DetailContainer{
 
-  padding-top: 8.5rem;
+  padding-top: 8rem;
+
   
 }
 .detailContainer{
 
   padding-left: 20%;
   padding-right: 20%;
+  
 }
 .imageDetail{
 
@@ -1092,6 +1114,7 @@ margin-bottom: 0%;
   color: white;
   font-weight: 600;
   border: none;
+  
   
   
   

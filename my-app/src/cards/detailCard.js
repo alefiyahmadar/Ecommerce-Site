@@ -1,27 +1,27 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { useNavigate } from "react-router-dom"
+
 
 export const ProductDetail = (item)=>{
 
 
 
-    const {_id ,  
+    const {  
         title,
        author,
        price,
-       image , rating , quantity  , language , fiction , nonfiction , horror}=item
+       image , rating   , language , fiction , nonfiction , horror}=item
 
        const {AddToWishlistHandler , AddToCartHandler , RemoveFromCart , RemoveFromWishlist}  = useContext(CartContext)
 
-       const navigate = useNavigate()
+       
 
     return(
     
     <div>
     <div className="detailContainer" >
 
-        <img src={image} className="imageDetail"></img>
+        <img alt="" src={image} className="imageDetail"></img>
 
 <div className="detailInfo">
         <h2>{title} <span>{rating}⭐</span> </h2>

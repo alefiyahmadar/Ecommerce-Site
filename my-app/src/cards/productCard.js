@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
-import { AlertMessage } from "./alertMsg"
+import { AlertMessage } from "../pages/alertMsg"
 
 export const ProductCard =(item)=>{
 
@@ -10,11 +10,11 @@ export const ProductCard =(item)=>{
      title,
     author,
     price,
-    image , rating , quantity , isCart}=item
+    image , rating }=item
 
   
 
-    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist , incrementHandler , decrementHandler   , cart , showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist   , cart , showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
 
 const navigate = useNavigate()
 
@@ -51,12 +51,7 @@ console.log(cart)
         <p className="item-price">₹{price - 50}<span style={{color:"grey" , textDecoration:"line-through"}}>₹{price}</span></p>
     
         
-        {
-            isCart && 
-        
-            <span className="qty"><button  onClick={()=>incrementHandler(_id)}>+</button>  <span className="qtyNum"> {quantity}</span> <button onClick={()=>decrementHandler(_id)}>-</button></span>
-
-       }
+       
 
 
         <button className="Cartbtn" onClick={JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title)   ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title) ? "Remove From Cart" : "Add to cart"}</button>

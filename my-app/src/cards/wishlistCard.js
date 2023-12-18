@@ -8,7 +8,7 @@ const {_id ,
     title,
    author,
    price,
-   image , rating , quantity } = item
+   image  } = item
 
    const {AddToCartHandler , RemoveFromCart ,RemoveFromWishlist} = useContext(CartContext)
 

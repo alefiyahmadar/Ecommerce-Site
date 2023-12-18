@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { CartContext } from "../contexts/contextProvider"
-import { ProductCard } from "./productCard"
 import { AlertMessage } from "./alertMsg"
 import { NavLink } from "react-router-dom"
 

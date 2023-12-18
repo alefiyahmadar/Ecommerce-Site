@@ -1,6 +1,6 @@
 import { useContext } from "react"
 
-import { ProductCard } from "./productCard"
+import { ProductCard } from "../cards/productCard"
 import { CartContext } from "../contexts/contextProvider"
 
 
@@ -8,7 +8,7 @@ export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn ,showAlert  , alertMsg  ,handleAlertClose  , filters , getDataFiltered , showFilter  } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn   , filters , getDataFiltered , showFilter  } = useContext(CartContext)
 
 
         
