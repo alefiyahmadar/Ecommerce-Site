@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext , React} from "react"
 import {  useNavigate } from "react-router-dom"
 import { CartContext } from "../contexts/contextProvider"
 import {categories} from "../backend/db/categories"

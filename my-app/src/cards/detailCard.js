@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext , React } from "react"
 import { CartContext } from "../contexts/contextProvider"
 
 
@@ -24,15 +24,15 @@ export const ProductDetail = (item)=>{
         <img alt="" src={image} className="imageDetail"></img>
 
 <div className="detailInfo">
-        <h2>{title} <span>{rating}⭐</span> </h2>
-        <h3>₹{price - 50} <span style={{fontSize:"14px" , color:"grey" , textDecoration:"line-through"}}>₹{price}</span></h3>
-        <p>⚡Hurry, Only few left!</p>
+        <h2>{title} <span role="img" aria-label="">{rating}⭐</span> </h2>
+        <h3><span role="img" aria-label="">₹</span>{price - 50} <span style={{fontSize:"14px" , color:"grey" , textDecoration:"line-through"}}><span role="img" aria-label="">₹</span>{price}</span></h3>
+        <p><span role="img" aria-label="" >⚡</span>Hurry, Only few left!</p>
 </div>
         <hr></hr>
         <div className="detailTag">
-        <p>🏷️Fastest Delivery</p>
-        <p>🏷️Inclusive of All Taxes</p>
-        <p>🏷️Cash On Delivery</p>
+        <p><span role="img" aria-label="">🏷️</span> Fastest Delivery</p>
+        <p><span role="img" aria-label="">🏷️</span>Inclusive of All Taxes</p>
+        <p><span role="img" aria-label="">🏷️</span>Cash On Delivery</p>
 </div>
 
 <div className="detailAuth">

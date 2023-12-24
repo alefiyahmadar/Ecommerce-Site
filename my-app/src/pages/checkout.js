@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState , React } from "react"
 import { CartContext } from "../contexts/contextProvider"
 
 export const CheckOut = ()=>{

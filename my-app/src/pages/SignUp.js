@@ -1,4 +1,6 @@
-import { useContext, useEffect } from "react"
+
+import {React} from "react" 
+import { useContext, useEffect  } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { NavLink, useNavigate } from "react-router-dom"
 

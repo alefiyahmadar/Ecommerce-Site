@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 
 export const AlertMessage = ({ message, onClose }) => {
   const [visible, setVisible] = useState(true);

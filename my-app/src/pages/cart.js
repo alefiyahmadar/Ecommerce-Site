@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext  , React} from "react"
 import { CartContext } from "../contexts/contextProvider"
 
 import { NavLink,  useNavigate } from "react-router-dom"
@@ -79,7 +79,7 @@ export const GetCart = ()=>{
                 <p  >Coupan Discount: {coupan === 0 ? "0" :coupan}</p>
                 <p>Delivery Charges : FREE</p>
                 <p style={{display:coupan > 0 ? "inline" :"none" , padding:"0.5rem"}}>{ showCpn}</p>
-                <button onClick={RemoveCpnHandler} style={{display:coupan > 0 ? "inline" :"none" , border:"none" , backgroundColor:"#faf5ff" ,padding:"0.5rem"}}>❌</button>
+                <button onClick={RemoveCpnHandler} style={{display:coupan > 0 ? "inline" :"none" , border:"none" , backgroundColor:"#faf5ff" ,padding:"0.5rem"}}><span role="img" aria-label="">❌</span></button>
                 <hr></hr>
                 <p><b>Total Price: {useReduce - discount - coupan}</b ></p>
                 <hr></hr>
