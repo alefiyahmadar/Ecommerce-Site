@@ -1,6 +1,7 @@
 import "./App.css";
 import {React} from "react"
 import {NavLink, Route , Routes} from "react-router-dom"
+import { AlertMessage } from "./pages/alertMsg";
 
 
 
@@ -20,7 +21,7 @@ import { CheckOut } from "./pages/checkout";
 
 function App() {
 
-  const {isLoggedin  , useReduce , SearchBarHandler  ,showFilter , setShowFilter } = useContext(CartContext)
+  const {isLoggedin  , useReduce , SearchBarHandler  ,showFilter , setShowFilter , showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
 
 const userCart = JSON.parse(localStorage.getItem("user")).cart
 const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
@@ -66,6 +67,9 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
         <input className="navInput" onChange={(e)=>SearchBarHandler(e)} placeholder="Search for product"   type="search"  /> 
         </div>
       </nav>
+      {
+                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
+            }
     
          
          <Routes>

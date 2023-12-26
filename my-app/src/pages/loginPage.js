@@ -1,7 +1,7 @@
 import { useContext, useState , React} from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate, NavLink} from "react-router-dom"
-import { AlertMessage } from "./alertMsg"
+
 
 
 export const GetLogin = () => {
@@ -9,7 +9,7 @@ export const GetLogin = () => {
     const { isLoggedin, SetIsloggedIn} = useContext(CartContext)
     const [emaillog, setEmail] = useState("")
     const [passLog, setPassword] = useState("")
-    const { showAlert, setShowAlert ,alertMsg , setAlertMsg , handleAlertClose   } = useContext(CartContext)
+    const {  setShowAlert  , setAlertMsg    } = useContext(CartContext)
 
 
     const navigate = useNavigate()
@@ -89,7 +89,10 @@ export const GetLogin = () => {
 
     return (
         <div className="loginContainer">
+
             <div className="login">
+
+            
                 <h2>Log In</h2>
 
 
@@ -106,10 +109,7 @@ export const GetLogin = () => {
 
                 <p>Dont have an acoount? <NavLink to="/signup">Sign Up</NavLink></p>
 
-                {
-                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
-                
-            }
+            
 
 
 

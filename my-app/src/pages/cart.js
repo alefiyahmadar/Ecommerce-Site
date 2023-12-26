@@ -2,12 +2,12 @@ import { useContext  , React} from "react"
 import { CartContext } from "../contexts/contextProvider"
 
 import { NavLink,  useNavigate } from "react-router-dom"
-import { AlertMessage } from "./alertMsg"
+
 import { CartCard } from "../cards/CartCard"
 
 export const GetCart = ()=>{
 
-    const { getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan  , showAlert , alertMsg , handleAlertClose    } = useContext(CartContext)
+    const { getCartLength , discount , showCpn , setShowCpn, useReduce , coupan , setCoupan      } = useContext(CartContext)
 
     const navigate = useNavigate()
 
@@ -92,9 +92,7 @@ export const GetCart = ()=>{
                 
 
         
-                {
-                showAlert &&    <AlertMessage message={alertMsg} onClose={handleAlertClose} />
-            }
+                
 
 
     </div>)

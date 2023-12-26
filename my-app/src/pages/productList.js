@@ -4,11 +4,12 @@ import { ProductCard } from "../cards/productCard"
 import { CartContext } from "../contexts/contextProvider"
 
 
+
 export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn   , filters , getDataFiltered , showFilter  } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn   , filters , getDataFiltered , showFilter   } = useContext(CartContext)
 
 
         
@@ -17,6 +18,7 @@ export const ProductList =()=>{
 
 
     return(<div className="productlistDiv">
+
         <div className="sideBar" style={{margin:"0%" , display:showFilter ? "flex" : "none"}}  >
            
 

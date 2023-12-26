@@ -1,7 +1,7 @@
 import { useContext , React } from "react"
 import { CartContext } from "../contexts/contextProvider"
 import { useNavigate } from "react-router-dom"
-import { AlertMessage } from "../pages/alertMsg"
+
 
 export const ProductCard =(item)=>{
 
@@ -14,7 +14,7 @@ export const ProductCard =(item)=>{
 
   
 
-    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist   , cart , showAlert , alertMsg , handleAlertClose } = useContext(CartContext)
+    const{ AddToCartHandler ,RemoveFromCart ,AddToWishlistHandler , RemoveFromWishlist   , cart  } = useContext(CartContext)
 
 const navigate = useNavigate()
 
@@ -33,9 +33,7 @@ console.log(cart)
 
     return(<div key={_id} className="product-card"  >
 
-{
-                showAlert &&    <AlertMessage  message={alertMsg} onClose={handleAlertClose} />
-            }
+
 
     <span className="heartSpan">
       <button  className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
