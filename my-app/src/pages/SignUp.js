@@ -42,8 +42,10 @@ export const GetSignUp =()=>{
 
 
                 const {createdUser } = await res.json()
+                console.log(createdUser)
 
                     const serializedObj = JSON.stringify(createdUser)
+                    console.log(serializedObj)
                     
 
                 
@@ -101,24 +103,29 @@ export const GetSignUp =()=>{
 
 
     return(
-        <div className="login">
+        <div className="signupContainer">
+        <div className="signup">
 
-            <h3>Sign Up</h3>
-            <input type="text" placeholder="FirstName" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , firstName:e.target.value})} />
+            <h3 >Sign Up</h3>
+            <input type="text" placeholder="FirstName" style={{ outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , firstName:e.target.value})} />
 
             
-            <input type="text" placeholder="LastName" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , lastName:e.target.value})} / >
+            <input type="text" placeholder="LastName" style={{ outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , lastName:e.target.value})} / >
 
 
 
-                <input type="email" placeholder="Email" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , email:e.target.value})} />
+                <input type="email" placeholder="Email" style={{ outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , email:e.target.value})} />
 
-                <input type="password" placeholder="Password" style={{marginBottom:"1.5rem" , padding:"0.7rem" , borderRadius:"0.5rem" , outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , password:e.target.value})}/>
+                <input type="password" placeholder="Password" style={{ outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , password:e.target.value})}/>
 
-                <button style={{padding:"0.5rem" , backgroundColor:"violet" , border:"none" , color:"white" , fontSize:"large" , fontWeight:'bold' , borderRadius:"1rem"}} onClick={SignUpHandler}>Sign Up</button>
+                <button style={{}} onClick={SignUpHandler}>Sign Up</button>
                 
-                <p>Already have an account? <NavLink style={{textDecoration:"none"}} to="/login">Login</NavLink> </p>
+               
 
         </div>
+
+        <p>Already have an account? <NavLink style={{textDecoration:"none"}} to="/login">Login</NavLink> </p>
+        </div>
+
     )
 }

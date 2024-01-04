@@ -26,13 +26,14 @@ const [userArray, setUserArray] = useState(users);
 const [filterValue , setFilterValue] = useState("")
 const [getFilterData , setFilterData] = useState(false)
 
-const [showFilter , setShowFilter ] = useState(false)
+const [showFilter , setShowFilter ] = useState(window.innerWidth > 425 ? true : false)
 
 
 
 
 
 const navigate = useNavigate()
+console.log(showFilter)
 
 
 

@@ -75,16 +75,16 @@ categories.map((item)=><li onClick={()=>getPerHome(item.categoryName)} className
 
             <ul className="footerUl">
 
-            <div  >
-            <p style={{color:"white" , fontSize:"1.5rem" , padding:"1rem"  ,paddingBottom:"0%", fontWeight:"bold" }}>LiteraryLinx</p>
+            <div className="about" >
+            <p style={{ fontSize:"larger" , color:"white" , fontWeight:"300" ,marginBlockStart:"5%" , marginBlockEnd:"2%" }}>LiteraryLinx</p>
 
-            <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%"  , paddingBottom:"0.5rem"  }}>Books are a uniquely portable magic!</p>
+            <p >Books are a uniquely portable magic!</p>
 
-            <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%"  ,paddingTop:"0.1rem",paddingBottom:"0.5rem" }}>Privacy Policy</p>
-            <p style={{color:"white" , fontSize:"1.1rem" ,marginBlock:"0%"  ,paddingBottom:"0.5rem" }}>Terms of use</p>
-            <p style={{color:"white"  ,marginBlock:"0%"  , fontSize:"small"  }}>@2022 LiteraryLinx</p>
+            <p >Privacy Policy</p>
+            <p >Terms of use</p>
+            <p >@2022 LiteraryLinx</p>
             </div>
-            <div  >
+            <div className="connect"  >
                     <p style={{fontSize:"larger" , color:"white" , fontWeight:"300" ,marginBlockStart:"5%" , marginBlockEnd:"2%" }}>Connect</p>
 
                     <p  onClick={()=>navigate("")}>GitHub</p>
@@ -96,8 +96,8 @@ categories.map((item)=><li onClick={()=>getPerHome(item.categoryName)} className
 
             </div>
 
-            <div  >
-                    <p style={{fontSize:"larger" , color:"white" , fontWeight:"300" , marginBlockStart:"5%" , marginBlockEnd:"2%" }}>Connect</p>
+            <div className="resources"  >
+                    <p style={{fontSize:"larger" , color:"white" , fontWeight:"300" , marginBlockStart:"5%" , marginBlockEnd:"2%" }}>Resources</p>
 
                   
                     

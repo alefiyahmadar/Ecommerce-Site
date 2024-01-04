@@ -37,7 +37,7 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
         <div className="nav-container" >
 
 
-        <p className="navHeader" >  <span style={{paddingRight:"0.5rem" , display: window.location.pathname === "/productList" ? "inline" :"none"}} className="navMenue" onClick={showFilter ? ()=>setShowFilter(false): ()=>setShowFilter(true)} ><img width="15" height="15"  src="https://img.icons8.com/ios-filled/50/FFFFFF/menu--v6.png" alt="menu--v6"/></span>LiteraryLinx </p>
+        <p className="navHeader" >  <span style={{paddingRight:"0.5rem" , display: window.location.pathname === "/productList" ? "inline" :"none"}} className="navMenue" onClick={showFilter ? ()=>setShowFilter(false): ()=>setShowFilter(true)} ><img style={{display:window.innerWidth > 425 ? "none" : "inline"}} width="15" height="15"  src="https://img.icons8.com/ios-filled/50/FFFFFF/menu--v6.png" alt="menu--v6"/></span>LiteraryLinx </p>
 
        
 
@@ -51,14 +51,14 @@ const userWishList = JSON.parse(localStorage.getItem("user")).wishlist
 
           <span className="navBtn"> 
         
-        <NavLink className="cartNav" to="/cart" style={{ paddingTop:"2rem" , paddingRight:"1rem" , textDecoration:"none"}} ><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin && userCart.length > 0  ? "flex" : "none" ,  position: 'absolute' ,top:"20%" , padding:"0%" , margin:"0%" }}>
+        <NavLink className="cartNav" to="/cart" style={{ textDecoration:"none"}} ><img  src="https://img.icons8.com/ios-filled/50/FFFFFF/shopping-bag.png" alt="shopping-bag"/><span style={{textDecoration:"none" , color:"white" , display:isLoggedin && userCart.length > 0  ? "flex" : "none" ,  position: 'absolute' ,top:"20%" , padding:"0%" , margin:"0%" }}>
           { userCart.length}</span>
           <span style={{ display:isLoggedin  && userCart.length > 0 ? "flex" : "none" , color:"white" , position:"absolute" , top:"90%"  }}>₹{useReduce}</span></NavLink>
 
-        <NavLink to="/wishlist" style={{  paddingTop:"2rem" , textDecoration:"none" }}><img width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin && userWishList.length > 0 ? "flex" : "none"   , top:"3%" , left:"20%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
+        <NavLink   className="wishlistNav" to="/wishlist" style={{  textDecoration:"none"  }}><img  src="https://img.icons8.com/ios-filled/50/FFFFFF/like--v1.png" alt="like--v1"/><span style={{textDecoration:"none" , color:"white" , position:"absolute" ,  display:isLoggedin && userWishList.length > 0 ? "flex" : "none"   , top:"3%" , left:"20%"  }}>{ isLoggedin &&  userWishList.length}</span>  </NavLink>
 
         
-        <NavLink to="/user" style={{  paddingTop:"2rem" ,paddingLeft:"1rem"  }}><img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
+        <NavLink to="/user" className="userNav" style={{   }}><img  src="https://img.icons8.com/ios-glyphs/30/FFFFFF/user--v1.png" alt="user--v1"/>  </NavLink>
 
         </span>
 

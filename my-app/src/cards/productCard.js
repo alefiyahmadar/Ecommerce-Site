@@ -7,7 +7,7 @@ export const ProductCard =(item)=>{
 
 
     const {_id ,  
-     title,
+     title, 
     author,
     price,
     image , rating }=item
@@ -37,8 +37,10 @@ console.log(cart)
 
     <span className="heartSpan">
       <button  className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
+
+      <p className="rating">{rating}<span role="img" aria-label="" >⭐</span></p>
       </span>
-      <span style={{display:"flex" , marginBlock:"0%" , justifyContent:"right"}} > <p>{rating}<span role="img" aria-label="" >⭐</span></p></span>
+      
 
        
 
