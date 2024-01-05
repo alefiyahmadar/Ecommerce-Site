@@ -281,28 +281,7 @@ font-size: large;
 padding: 0.5rem;
   border: 1px solid;
 }
-.alert{
 
-
-
-  
-
-  text-align: center;
-
-
-
-  background-color: #a855f7;
-  border: 1px solid #ccc;
-  padding: 2px;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border: solid 1.5px var(--dark-color);
-  
-  border-radius: 1rem;
-  color: white;
-  font-size: large;
-
-}
 
 .userMenueBtn{
 
@@ -448,7 +427,7 @@ font-weight: 600;
   margin-top:6.5rem;
   width: 100%;
   padding: 0%;
-  height: 3vh;
+  
 
   
 
@@ -1482,6 +1461,7 @@ width: 100%;
   height: 0vh;
   margin: 0%;
   padding: 3rem;
+  z-index: 999;
 }
 .nav-container{
 
@@ -1747,7 +1727,7 @@ width: 80%;
   margin-bottom: 1rem;
   display: flex;
   margin-left: 1rem;
-  z-index: -1;
+  
   
 }
 
@@ -1759,6 +1739,7 @@ width: 80%;
   background-color:red;
   border-radius: 50%;
   position: absolute;
+  z-index: 1;
 }
 .heart-button:before {
   top: -10px;
@@ -1892,24 +1873,217 @@ width: 80%;
 .userAcc{
 
   width: 75%;
+  height: 27vh;
 }
 .userAcc button{
 
-  width: 30%;
+  width: 20%;
   padding: 0.3rem;
 }
 .userAdress{
 
   width:75% ;
-  height: 90%;
+}
+
+#removeBtn{
+
+  background-color: red;
+  margin-top: 1rem;
+  width: 20%;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+#userAdd{
+
+  background-color: white;
+  border:none;
+  margin-top:0.5rem ;
+}
+.addressmenu{
+
+  position: fixed;
+
+  z-index: 1;
+  left: 25%;
+  top: 20%;
+  background-color: white;
+  width: 50%;
+
+
+}
+.addressmenu input{
+
+  width: 40%;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+.addressmenu button{
+
+  width:20% ;
+  border-radius: 0.5rem;
+}
+
+.prodDetail{
+
+  margin: auto;
+  
+}
+.detailCard{
+
+  width: 45rem;
+  height: 75vh;
+  box-shadow:    0 0 25px rgba(0, 0, 0, 0.25); ;
+  
+}
+.DetailContainer{
+
+
+  padding-top: 7rem;
+  margin: auto;
+  display: flex;
+  
+
+}
+.imageDetail{
+
+  width: 14rem;
+  display: flex;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: absolute;
+  margin-top: 0%;
+  
+}
+.detailInfo{
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  margin-left: 5rem;
+
+  
+}
+.detailInfo h2{
+
+  padding-top: 0rem;
+  font-size: 20px;
+  margin-bottom: 0%;
+  margin-left: 1rem;
+  
+  
+}
+.detailInfo h3{
+
+  margin-right:20%;
+  margin-bottom: 2%;
+}
+.detailInfo p{
+  margin: 0%;
+  margin-right: 15%;
+  font-size: 10px;
+  margin-bottom: 1rem;
+
+}
+.detailCard hr{
+
+  width: 50%;
+  margin-left: 17rem;
+  
+}
+.detailTag{
+
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  margin-left: 4rem;
+  margin-bottom:4% ;
+
+
+
+}
+.detailTag p{
+
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  font-size: 12px;
+
+}
+.detailAuth p{
+
+  margin-left: 3rem;
+  margin-bottom: 2%;
+  margin-top: 0%;
+  color: gray;
+  font-size: 12px;
+  
+}
+.detailAuth p span{
+
+  color:#a855f7;
+  font-weight: 600;
+}
+.detailBtn{
+
+  display: flex;
+  margin-left: 18rem;
+  flex-direction: column;
+  width: 30%;
+margin-top: 2rem;
+}
+.cartDetail{
+
+  padding: 0.3rem;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wish{
+  padding: 0.3rem;
+  font-size: 14px;
+  color:#22201c;
+  border:#22201c 1px solid;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: white;
+
+
 }
 
 
+.alert{
+
+  margin-top: 6rem;
+  position: fixed;
+  display: flex;
+  right: 3%;
+  padding-bottom:1%;
+  padding-top: 0%;
+  height: 5vh;
+  background-color: #a855f7;
+  width: 20%;
+  color: white;
+  font-size: 20px;
+  
+  border-top-left-radius:0.5rem ;
+  border-bottom-left-radius:0.5rem ;
+
+
+  
 
 
 
+}
+.alert p{
+  padding-top: 5%;
+  margin: 0%;
+  padding-left: 2%;
 
-
+}
 
 
 
