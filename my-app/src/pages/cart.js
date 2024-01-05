@@ -1,9 +1,11 @@
 import { useContext  , React} from "react"
 import { CartContext } from "../contexts/contextProvider"
 
+
 import { NavLink,  useNavigate } from "react-router-dom"
 
 import { CartCard } from "../cards/CartCard"
+import { ProductCard } from "../cards/productCard"
 
 export const GetCart = ()=>{
 
@@ -49,14 +51,16 @@ export const GetCart = ()=>{
     return(<div className="cartContainer"  >
         <p >Cart</p>
 
-        <ul className="cartProduct" > 
+        <ul className={window.innerWidth > 450 ? "product-grid" :"cartProduct"} > 
 
        
 
         {
            
+            window.innerWidth > 450 ?
+              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <ProductCard {...e}  />): <h2 >Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
 
-              userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <CartCard {...e}  />): <h2 >Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
+              :  userData.map((e)=> e.cart.length > 0 ? e.cart.map((e)=>  <CartCard {...e}  />): <h2 >Cart is empty! <NavLink style={{textDecoration:"none"}} to="/productList">Back to store</NavLink></h2>)
         }
         
         
@@ -70,7 +74,7 @@ export const GetCart = ()=>{
                     </select>
                     <hr></hr>
                     
-                      <h2>Price Details</h2>
+                      <h3>Price Details</h3>
                       <hr></hr>
 
 
@@ -78,10 +82,10 @@ export const GetCart = ()=>{
                 <p>Discount: {discount} </p>
                 <p  >Coupan Discount: {coupan === 0 ? "0" :coupan}</p>
                 <p>Delivery Charges : FREE</p>
-                <p style={{display:coupan > 0 ? "inline" :"none" , padding:"0.5rem"}}>{ showCpn}</p>
-                <button onClick={RemoveCpnHandler} style={{display:coupan > 0 ? "inline" :"none" , border:"none" , backgroundColor:"#faf5ff" ,padding:"0.5rem"}}><span role="img" aria-label="">❌</span></button>
+                <p style={{display:coupan > 0 ? "inline" :"none" , padding:"0rem"}}>{ showCpn}</p>
+                <button onClick={RemoveCpnHandler} style={{display:coupan > 0 ? "inline" :"none" , border:"none" , backgroundColor:"#faf5ff" ,padding:"0rem"}}><span role="img" aria-label="">❌</span></button>
                 <hr></hr>
-                <p><b>Total Price: {useReduce - discount - coupan}</b ></p>
+                <h4><b>Total Price: {useReduce - discount - coupan}</b ></h4>
                 <hr></hr>
 
                 <p style={{color:"red"}}>You'll save {discount + coupan } on this order</p>

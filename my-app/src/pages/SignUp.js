@@ -41,11 +41,13 @@ export const GetSignUp =()=>{
                 
 
 
+
                 const {createdUser } = await res.json()
-                console.log(createdUser)
+                
 
                     const serializedObj = JSON.stringify(createdUser)
                     console.log(serializedObj)
+                    
                     
 
                 
@@ -70,7 +72,6 @@ export const GetSignUp =()=>{
 
         }catch(e){
             console.error(e)
-
         }
 
         SetIsloggedIn(!isLoggedin)
@@ -118,7 +119,7 @@ export const GetSignUp =()=>{
 
                 <input type="password" placeholder="Password" style={{ outline:"none"}} onChange={(e)=>setLoggedInUser({...loggedInUser , password:e.target.value})}/>
 
-                <button style={{}} onClick={SignUpHandler}>Sign Up</button>
+                <button  onClick={SignUpHandler}>Sign Up</button>
                 
                
 

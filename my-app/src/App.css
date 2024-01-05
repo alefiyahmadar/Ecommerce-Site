@@ -303,6 +303,119 @@ padding: 0.5rem;
   font-size: large;
 
 }
+
+.userMenueBtn{
+
+  width: 100%;
+  
+
+}
+.userMenueBtn button{
+  width: 40%;
+  padding: 0.5rem;
+  font-size: 14px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+border-color: lightblue;
+font-weight: 600;
+}
+.userAcc{
+  padding: 1rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  width: 70%;
+  margin: auto;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  }
+  .userAcc p{
+    display: flex;
+    color: gray;
+    
+    
+  }
+
+  .userAcc p span{
+    color: black;
+
+    
+  }
+  .userAcc button{
+
+    display: flex;
+  justify-content: center;
+    width: 10%;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+
+    
+  }
+.addressmenu{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+.addressmenu h4{
+  font-size: 14px;
+}
+.addressmenu input{
+
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.userAdress{
+
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  
+}
+.userAdress h2{
+  padding-bottom: 0.5rem;
+  margin: 0%;
+  padding-left: 0%;
+  font-size: 16px;
+}
+.userAdress p{
+  display: flex;
+  flex-direction: column;
+  margin: 0%;
+  font-size: 14px;
+}
+.save{
+
+
+  padding: 0.3rem;
+  font-size: 14px;
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  width: 40%;
+  
+  }
+  .cancel{
+    margin-left: 0.5rem;
+  padding: 0.3rem;
+  font-size: 14px;
+  background-color:white;
+  color: red;
+  border: 1px solid red;
+  width: 40%;
+  
+  
+  }
 @media only screen and (max-width: 425px) {
   .App{
     margin: 0;
@@ -569,6 +682,11 @@ margin: 0%;
     width: 5rem;
     
   }
+
+  .rating{
+
+    margin-left: 3rem;
+  }
   .homeMain{
     display: flex;
 
@@ -789,10 +907,11 @@ font-size: 14px;
     .product-card span p{
       background-color: red;
       text-align: center;
-      padding: 5px;
+      padding: 2px;
       color: white;
       font-weight: bold;
       border-radius: 0.5rem;
+      margin-left: 5rem;
       
     }
     .product-card img{
@@ -1264,52 +1383,20 @@ width: 70%;
 margin: auto;
 border-bottom-left-radius: 0.5rem;
 border-bottom-right-radius: 0.5rem;
-
-  
 }
 .userAcc p{
   display: flex;
-
-
   
 }
 .userAcc button{
 
-  width: 40%;
-  background-color: red;
-  border: none;
-  color: white;
-  font-size: 14px;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
+  padding: 0.3rem;
+  width: 35%;
+
 }
 
 
-.userAdress{
 
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  
-}
-.userAdress h2{
-  padding-bottom: 0.5rem;
-  margin: 0%;
-  padding-left: 0%;
-  font-size: 16px;
-}
-.userAdress p{
-  display: flex;
-  flex-direction: column;
-  margin: 0%;
-  font-size: 14px;
-}
 #removeBtn{
 
   margin-top: 1rem;
@@ -1610,7 +1697,8 @@ padding: 1rem 1rem;
 
     
     
-    width: 70rem;
+    width: 65rem;
+    margin-top: 4rem;
   
     
     
@@ -1659,6 +1747,7 @@ width: 80%;
   margin-bottom: 1rem;
   display: flex;
   margin-left: 1rem;
+  z-index: -1;
   
 }
 
@@ -1744,14 +1833,81 @@ width: 80%;
 }
 .cart{
 
-  padding: 1rem;
-  margin-top: 4rem;
-  display:grid
+  margin-top: 0rem;
+  width: 80%;
+  margin: 0 auto;
+  
 
- 
+
+
   
 
 }
+.cartBill{
+
+  margin-top: 6rem;
+  position: fixed;
+ width: 20%;
+ 
+ margin-left: 2rem;
+ 
+ box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+ 
+}
+.cartBill select{
+
+  margin-top: 1rem;
+}
+.cartBill button{
+
+  margin-bottom: 1rem;
+}
+.cartBill p{
+
+  padding: 0%;
+  
+  margin-top: 0.5rem;
+}
+.cartBill h4{
+
+  margin: 0.5rem;
+
+}
+.cartContainer div{
+
+  float: left;
+
+  margin-left: 5rem;
+}
+.userContainer{
+
+  margin-top: 8rem;
+}
+
+.userMenueBtn{
+
+  width: 50%;
+  margin: auto;
+}
+.userAcc{
+
+  width: 75%;
+}
+.userAcc button{
+
+  width: 30%;
+  padding: 0.3rem;
+}
+.userAdress{
+
+  width:75% ;
+  height: 90%;
+}
+
+
+
+
+
 
 
 

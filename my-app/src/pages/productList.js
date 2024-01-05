@@ -103,8 +103,9 @@ console.log(showFilter)
 {
  
  
-      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 >Sorry , Products are not available for chosen category.</h2>
+      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2  >Sorry , Products are not available for chosen category.</h2>
 }
+
 </div>
 
 

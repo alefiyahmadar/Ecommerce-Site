@@ -31,12 +31,12 @@ console.log(cart)
 
 
 
-    return(<div key={_id} className="product-card"  >
+    return(<div key={_id} className="product-card"   >
 
 
 
     <span className="heartSpan">
-      <button  className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.1"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
+      <button  className="heart-button" style={{opacity: JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? "1" :"0.4"}} onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)}></button>
 
       <p className="rating">{rating}<span role="img" aria-label="" >⭐</span></p>
       </span>
