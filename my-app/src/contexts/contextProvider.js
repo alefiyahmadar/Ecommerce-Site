@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState , React } from "react";
+
 import { users } from "../backend/db/users";
 import { formatDate } from "../backend/utils/authUtils";
 import {v4 as uuid} from "uuid"
@@ -401,6 +402,8 @@ const decrementHandler =(id)=>{
 
 
     return(
+
+        
         <CartContext.Provider value={{getProducts , setProducts  , AddToCartHandler , RemoveFromCart , AddToWishlistHandler , RemoveFromWishlist , rangeValue , setRangeValue ,getSliderHandler , getPriceData , GetCategoryHandler , GetCategoryData , sortHandler , getSortedData , clearBtn , getCartLength , GetWishlistLength , setFilter , filters , isLoggedin , SetIsloggedIn , loggedInUser , setLoggedInUser , adressArr , setAddressArr , incrementHandler , decrementHandler ,useReduce , discount , SetDiscount ,coupan ,setCoupan , showCpn , setShowCpn , showAlert , setShowAlert , alertMsg , setAlertMsg , handleAlertClose   
          , cart , setCart , userArray , setUserArray , defaultUser , setDefault , isFiction , setIsFiction , isNonFic , setIsNonFic , SearchBarHandler , getDataFiltered  , showFilter , setShowFilter}}>
             {children}
