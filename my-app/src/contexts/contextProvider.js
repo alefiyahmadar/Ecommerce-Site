@@ -34,7 +34,7 @@ const [showFilter , setShowFilter ] = useState(window.innerWidth > 425 ? true : 
 
 
 const navigate = useNavigate()
-console.log(showFilter)
+
 
 
 
@@ -136,12 +136,12 @@ const SearchBarHandler =(e)=>{
 
     isLoggedin === false ?  setShowAlert(true) || setAlertMsg("Please Login") : navigate("/productList")
 
-    console.log(typeof e.target.value)
+    
     setFilterData(true)
     setFilterValue(e.target.value)
 
     const filterData = getSortedData.filter((item)=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
-    console.log(filterData)
+    
 
 
 
