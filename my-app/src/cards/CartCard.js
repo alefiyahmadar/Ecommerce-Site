@@ -22,9 +22,9 @@ const {_id ,
    
 
    return(<div className="cart">
-    <ul>
-        <li>
-            <div >
+    <ul  >
+        <li >
+            <div  >
 
                 <div className="cartDiv">
 

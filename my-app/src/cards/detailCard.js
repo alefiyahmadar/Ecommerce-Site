@@ -18,10 +18,11 @@ export const ProductDetail = (item)=>{
 
     return(
     
-    <div>
+    <div className="detailCard">
     <div className="detailContainer" >
 
         <img alt="" src={image} className="imageDetail"></img>
+        
 
 <div className="detailInfo">
         <h2>{title} <span role="img" aria-label="">{rating}⭐</span> </h2>
@@ -47,10 +48,10 @@ export const ProductDetail = (item)=>{
 
     </div>
     <div className="detailBtn">
-    <button  style={{backgroundColor:"#a855f7"}} onClick={JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title)   ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title) ? "Remove From Cart" : "Add to cart"}</button>
+    <button className="cartDetail"  style={{backgroundColor:"#a855f7"}} onClick={JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title)   ? ()=>RemoveFromCart(item) : ()=>AddToCartHandler(item)}>{JSON.parse(localStorage.getItem("user")).cart.find((e)=>e.title === title) ? "Remove From Cart" : "Add to cart"}</button>
 
 
-    <button  onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)} style={{backgroundColor:"grey"}}>{ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ?"Remove from Wishlist": "Add to Wishlist "}</button>
+    <button className="wish" onClick={ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ? ()=>RemoveFromWishlist(item): ()=>AddToWishlistHandler(item)} >{ JSON.parse(localStorage.getItem("user")).wishlist.find((e)=>e.title === title) ?"Remove from Wishlist": "Add to Wishlist "}</button>
 </div>
 
 

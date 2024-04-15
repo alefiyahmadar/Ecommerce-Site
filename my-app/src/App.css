@@ -281,32 +281,120 @@ font-size: large;
 padding: 0.5rem;
   border: 1px solid;
 }
-.alert{
 
 
+.userMenueBtn{
 
-  position: fixed;
-  width: 20%;
-  text-align: center;
-  bottom: 0%;
-  left:0%;
-  margin: auto;
-margin-right: 2rem;
-margin-left: 2rem;
-  margin-bottom: 2rem;
-
-  background-color: #a855f7;
-  border: 1px solid #ccc;
-  padding: 2px;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border: solid 1.5px var(--dark-color);
+  width: 100%;
   
-  border-radius: 1rem;
-  color: white;
-  font-size: large;
 
 }
+.userMenueBtn button{
+  width: 40%;
+  padding: 0.5rem;
+  font-size: 14px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+border-color: lightblue;
+font-weight: 600;
+}
+.userAcc{
+  padding: 1rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  width: 70%;
+  margin: auto;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  }
+  .userAcc p{
+    display: flex;
+    color: gray;
+    
+    
+  }
+
+  .userAcc p span{
+    color: black;
+
+    
+  }
+  .userAcc button{
+
+    display: flex;
+  justify-content: center;
+    width: 10%;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+
+    
+  }
+.addressmenu{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+.addressmenu h4{
+  font-size: 14px;
+}
+.addressmenu input{
+
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.userAdress{
+
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  
+}
+.userAdress h2{
+  padding-bottom: 0.5rem;
+  margin: 0%;
+  padding-left: 0%;
+  font-size: 16px;
+}
+.userAdress p{
+  display: flex;
+  flex-direction: column;
+  margin: 0%;
+  font-size: 14px;
+}
+.save{
+
+
+  padding: 0.3rem;
+  font-size: 14px;
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  width: 40%;
+  
+  }
+  .cancel{
+    margin-left: 0.5rem;
+  padding: 0.3rem;
+  font-size: 14px;
+  background-color:white;
+  color: red;
+  border: 1px solid red;
+  width: 40%;
+  
+  
+  }
 @media only screen and (max-width: 425px) {
   .App{
     margin: 0;
@@ -330,6 +418,44 @@ margin-left: 2rem;
     
     
   }
+  .alert{
+
+  
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  margin-top:6.5rem;
+  width: 100%;
+  padding: 0%;
+  
+
+  
+
+
+
+animation: slideRight 2s ease-in-out infinite alternate; 
+
+  
+  
+ 
+
+  }
+
+
+  @keyframes slideRight {
+    0% {
+      right: 0;
+    }
+    100% {
+      right: calc(100% - 0px); 
+    }
+  }
+ .alert p{
+
+  margin: 0%;
+  padding: 0%;
+font-size: 14px;
+ }
   .navHeader{
     margin: 0%;
     padding: 1rem;
@@ -458,6 +584,87 @@ margin: 0%;
     font-size: 10px;
     
   
+  }
+  .signupContainer{
+
+    border: 1px solid #a855f7 ;
+    margin-top: 10rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    
+    
+
+    
+    
+  
+  
+
+
+  }
+  .signup{
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding-top: 0%;
+    
+    
+  
+    
+
+
+
+  }
+  .signup input{
+
+    justify-content: center;
+
+  
+    
+    width: 100%;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+
+
+
+  }
+  .signup h3{
+    margin-top: 20%;
+    font-size: 16px;
+    
+  }
+  .signup button{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    
+    padding: 4px;
+    font-size: 10px;
+    
+    background-color: #a855f7;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+  }
+  .signup p{
+    display: flex;
+    font-size: 12px;
+    width: 5rem;
+    
+  }
+
+  .rating{
+
+    margin-left: 3rem;
   }
   .homeMain{
     display: flex;
@@ -679,10 +886,11 @@ font-size: 14px;
     .product-card span p{
       background-color: red;
       text-align: center;
-      padding: 5px;
+      padding: 2px;
       color: white;
       font-weight: bold;
       border-radius: 0.5rem;
+      margin-left: 5rem;
       
     }
     .product-card img{
@@ -1121,14 +1329,15 @@ margin-bottom: 0%;
 }
 .userContainer{
 
-  padding-top: 40%;
+  padding-top: 20%;
   
   
   
 }
 .userContainer h2{
 
-  padding: 1.5rem;
+  padding: 2rem;
+  font-size: 16px;
 }
 .userMenueBtn{
 
@@ -1153,52 +1362,20 @@ width: 70%;
 margin: auto;
 border-bottom-left-radius: 0.5rem;
 border-bottom-right-radius: 0.5rem;
-
-  
 }
 .userAcc p{
   display: flex;
-
-
   
 }
 .userAcc button{
 
-  width: 40%;
-  background-color: red;
-  border: none;
-  color: white;
-  font-size: 14px;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
+  padding: 0.3rem;
+  width: 35%;
+
 }
 
 
-.userAdress{
 
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  
-}
-.userAdress h2{
-  padding-bottom: 0.5rem;
-  margin: 0%;
-  padding-left: 0%;
-  font-size: 16px;
-}
-.userAdress p{
-  display: flex;
-  flex-direction: column;
-  margin: 0%;
-  font-size: 14px;
-}
 #removeBtn{
 
   margin-top: 1rem;
@@ -1252,16 +1429,662 @@ width: 40%;
 
 
 }
+.cartNav img{
 
-
-
-
-
-
+  width: 20%;
+  height: 20%;
+}
+.wishlistNav img{
+  width: 20%;
+  height: 20%;
+}
+.userNav img{
+  width: 20%;
+  height: 20%;
+}
 
 
 
   
 }
 
+@media only screen and (min-width: 435px ){
+  
 
+  .App{
+
+width: 100%;
+
+}
+.nav{
+  width: 100%;
+  height: 0vh;
+  margin: 0%;
+  padding: 3rem;
+  z-index: 999;
+}
+.nav-container{
+
+  display: flex;
+
+}
+.navBtn{
+
+  position: absolute;
+  right: 15%;
+  padding-top: 0%;
+  top: 25%;
+
+  
+  
+}
+
+.cartNav img{
+width: 30%; 
+height: 30%;
+
+
+}
+.wishlistNav{
+
+  
+
+  
+}
+.wishlistNav img{
+
+  width: 30%;
+  height: 30%;
+
+  
+}
+.userNav img{
+
+  width: 30%;
+  height: 30%;
+}
+.navInput{
+
+  margin: auto;
+  width: 40%;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+}
+.navHeader{
+  color: white;
+  position: absolute;
+  right: 80%;
+  bottom: 10%;
+font-size: 25px;
+font-weight: bold;
+}
+.home-bg{
+  margin-top: 6rem;
+  width: 100%;
+  height: 80vh;
+}
+.home-bg h3{
+
+  display: flex;
+  padding-left: 16rem;
+padding-top: 15rem;
+  font-size: 30px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+}
+.home-bg h2{
+  color:white;
+  display: flex;
+  padding-left: 16rem;
+  font-size: 20px;
+  
+}
+.home-bg button{
+  display: flex;
+  margin-left: 16rem;
+  padding: 0.6rem;
+  background-color: #a855f7;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 0.5rem;
+
+
+}
+.home-bg button:hover{
+
+  background-color: #22201c;
+}
+.circularContainer{
+  display: flex;
+  margin: auto;
+
+}
+.circular{
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.footer{
+
+  padding-bottom: 0%;
+  
+}
+.footerUl{
+  display: flex;
+  
+}
+.footerUl div{
+
+  padding-left: 10rem;
+}
+.connect{
+
+  padding-top: 2rem;
+  margin-left: 10rem;
+  color: white;
+
+}
+.resources{
+
+  padding-top: 2rem;
+  margin-left: 10rem;
+  color: white;
+
+
+}
+.about{
+  padding-top: 2rem;
+  color: white;
+  
+}
+.loginContainer{
+
+  margin-top: 10rem;
+}
+.login{
+
+  width: 15rem;
+  
+  padding: 1rem 1rem;
+}
+.login input{
+
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.login button{
+
+  background-color:#a855f7;
+  width:90%;
+  font-size: 16px;
+
+  
+  margin: auto;
+  margin-bottom: 1rem;
+  color: white;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.signupContainer{
+
+  
+  border:1px solid #a855f7;
+  width: 15rem;
+  
+  margin-top: 10rem;
+  margin-left: 40%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  
+}
+.signup{
+margin: auto;
+padding: 1rem 1rem;
+
+}
+.signup input{
+  
+
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+
+}
+.signup button{
+
+  margin-top: 1rem;
+  padding: 0.3rem;
+  color: white;
+  background-color: #a855f7;
+  width: 80%;
+  border: none;
+  font-size: 16px;
+  border-radius: 0.5rem;
+
+}
+.productlistDiv{
+
+ margin-top: 4rem;
+  
+}
+.product-grid{
+  
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+
+    
+    
+    width: 65rem;
+    margin-top: 4rem;
+  
+    
+    
+    
+  
+    
+    
+  
+}
+.product-card{
+
+  
+    border: 1px solid #ddd;
+    width: 15rem;
+    
+    height: 28rem;
+    
+  
+    text-align: center;
+  
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    
+  
+}
+.product-card img{
+
+width: 80%;
+
+
+}
+.heartSpan{
+  display: flex;
+  
+  
+}
+
+.heart-button {
+  width: 20px;
+  height:20px;
+  background-color: red;
+  border: none;
+  position: relative;
+  transform: rotate(45deg);
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 1rem;
+  display: flex;
+  margin-left: 1rem;
+  
+  
+}
+
+.heart-button:before,
+.heart-button:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color:red;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+.heart-button:before {
+  top: -10px;
+  left: 0;
+}
+
+.heart-button:after {
+
+  top: 0;
+  left: -10px;
+}
+.rating{
+  
+
+  padding-left: 9rem;
+  margin: 0%;
+
+}
+.item-title{
+  padding-top: 0%;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-author{
+
+  margin: 0%;
+  font-size: small;
+
+
+}
+.Cartbtn{
+
+  display: flex;
+  width: 90%;
+  margin:auto;
+  padding: 0.5rem;
+  margin-top: 0%;
+  
+}
+.sideBar{
+
+  padding-top: 5rem;
+  padding-left: 2rem;
+
+  
+}
+.sideBar div{
+  margin-bottom: 0.5rem;
+}
+.clear{
+
+  position: absolute;
+  right: 20%;
+  border: none;
+  background-color: white;
+}
+
+.line{
+
+  border-top: 1px solid #a855f7; 
+  width: 100%;
+  position: fixed;
+  top: 50px; 
+  right: 28%;
+  transform: rotate(90deg);
+
+  
+
+}
+.cart{
+
+  margin-top: 0rem;
+  width: 80%;
+  margin: 0 auto;
+  
+
+
+
+  
+
+}
+.cartBill{
+
+  margin-top: 6rem;
+  position: fixed;
+ width: 20%;
+ 
+ margin-left: 2rem;
+ 
+ box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+ 
+}
+.cartBill select{
+
+  margin-top: 1rem;
+}
+.cartBill button{
+
+  margin-bottom: 1rem;
+}
+.cartBill p{
+
+  padding: 0%;
+  
+  margin-top: 0.5rem;
+}
+.cartBill h4{
+
+  margin: 0.5rem;
+
+}
+.cartContainer div{
+
+  float: left;
+
+  margin-left: 5rem;
+}
+.userContainer{
+
+  margin-top: 8rem;
+}
+
+.userMenueBtn{
+
+  width: 50%;
+  margin: auto;
+}
+.userAcc{
+
+  width: 75%;
+  height: 27vh;
+}
+.userAcc button{
+
+  width: 20%;
+  padding: 0.3rem;
+}
+.userAdress{
+
+  width:75% ;
+}
+
+#removeBtn{
+
+  background-color: red;
+  margin-top: 1rem;
+  width: 20%;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+#userAdd{
+
+  background-color: white;
+  border:none;
+  margin-top:0.5rem ;
+}
+.addressmenu{
+
+  position: fixed;
+
+  z-index: 1;
+  left: 25%;
+  top: 20%;
+  background-color: white;
+  width: 50%;
+
+
+}
+.addressmenu input{
+
+  width: 40%;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+.addressmenu button{
+
+  width:20% ;
+  border-radius: 0.5rem;
+}
+
+.prodDetail{
+
+  margin: auto;
+  
+}
+.detailCard{
+
+  width: 45rem;
+  height: 75vh;
+  box-shadow:    0 0 25px rgba(0, 0, 0, 0.25); ;
+  
+}
+.DetailContainer{
+
+
+  padding-top: 7rem;
+  margin: auto;
+  display: flex;
+  
+
+}
+.imageDetail{
+
+  width: 14rem;
+  display: flex;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: absolute;
+  margin-top: 0%;
+  
+}
+.detailInfo{
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  margin-left: 5rem;
+
+  
+}
+.detailInfo h2{
+
+  padding-top: 0rem;
+  font-size: 20px;
+  margin-bottom: 0%;
+  margin-left: 1rem;
+  
+  
+}
+.detailInfo h3{
+
+  margin-right:20%;
+  margin-bottom: 2%;
+}
+.detailInfo p{
+  margin: 0%;
+  margin-right: 15%;
+  font-size: 10px;
+  margin-bottom: 1rem;
+
+}
+.detailCard hr{
+
+  width: 50%;
+  margin-left: 17rem;
+  
+}
+.detailTag{
+
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  margin-left: 4rem;
+  margin-bottom:4% ;
+
+
+
+}
+.detailTag p{
+
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  font-size: 12px;
+
+}
+.detailAuth p{
+
+  margin-left: 3rem;
+  margin-bottom: 2%;
+  margin-top: 0%;
+  color: gray;
+  font-size: 12px;
+  
+}
+.detailAuth p span{
+
+  color:#a855f7;
+  font-weight: 600;
+}
+.detailBtn{
+
+  display: flex;
+  margin-left: 18rem;
+  flex-direction: column;
+  width: 30%;
+margin-top: 2rem;
+}
+.cartDetail{
+
+  padding: 0.3rem;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wish{
+  padding: 0.3rem;
+  font-size: 14px;
+  color:#22201c;
+  border:#22201c 1px solid;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: white;
+
+
+}
+
+
+.alert{
+
+  margin-top: 6rem;
+  position: fixed;
+  display: flex;
+  right: 3%;
+  padding-bottom:1%;
+  padding-top: 0%;
+  height: 5vh;
+  background-color: #a855f7;
+  width: 20%;
+  color: white;
+  font-size: 20px;
+  
+  border-top-left-radius:0.5rem ;
+  border-bottom-left-radius:0.5rem ;
+
+
+  
+
+
+
+}
+.alert p{
+  padding-top: 5%;
+  margin: 0%;
+  padding-left: 2%;
+
+}
+
+
+
+}

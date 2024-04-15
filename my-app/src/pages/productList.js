@@ -4,26 +4,28 @@ import { ProductCard } from "../cards/productCard"
 import { CartContext } from "../contexts/contextProvider"
 
 
+
 export const ProductList =()=>{
 
 
 
-    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn   , filters , getDataFiltered , showFilter  } = useContext(CartContext)
+    const {rangeValue  , getSliderHandler  , GetCategoryHandler, sortHandler  , clearBtn   , filters , getDataFiltered , showFilter   } = useContext(CartContext)
 
 
         
         
 
-
+console.log(showFilter)
 
     return(<div className="productlistDiv">
-        <div className="sideBar" style={{margin:"0%" , display:showFilter ? "flex" : "none"}}  >
+
+        <div className="sideBar" style={{margin:"0%" , display:showFilter ? "flex"  : "none"}}  >
            
 
 
             <span >
         <div style={{ display:"flex"  }}>
-             <h4 style={{margin:"0%" , fontSize:"large"}}>Filters</h4>< button style={{ textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
+             <h4 style={{margin:"0%" , fontSize:"large"}}>Filters</h4>< button className="clear" style={{ textDecoration:"underline" , cursor:"pointer" }} onClick={clearBtn} >Clear</button>
 </div>
 
             <h3>Rating</h3>
@@ -84,9 +86,14 @@ export const ProductList =()=>{
 
 
              </span>
+
+       
            
              </div>
+
+             <div className="line"></div>
              
+            
              
         
         <div  className="product-grid" style={{marginTop:"4rem" }}>
@@ -96,8 +103,9 @@ export const ProductList =()=>{
 {
  
  
-      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2 >Sorry , Products are not available for chosen category.</h2>
+      getDataFiltered.length > 0 ?  getDataFiltered.map((item)=><ProductCard {...item}/>) : <h2  >Sorry , Products are not available for chosen category.</h2>
 }
+
 </div>
 
 

@@ -27,13 +27,14 @@ const [userArray, setUserArray] = useState(users);
 const [filterValue , setFilterValue] = useState("")
 const [getFilterData , setFilterData] = useState(false)
 
-const [showFilter , setShowFilter ] = useState(false)
+const [showFilter , setShowFilter ] = useState(window.innerWidth > 425 ? true : false)
 
 
 
 
 
 const navigate = useNavigate()
+console.log(showFilter)
 
 
 
@@ -155,6 +156,7 @@ const AddToCartHandler = (item)=>{
     const newItm = {...item , isAddedToCart:true}
     const userData = JSON.parse(localStorage.getItem("user"))
     
+    
 
     setProducts((prevItem)=>prevItem.map((e)=>e._id === item._id ? {...e , isAddedToCart:true} : e))
     
@@ -229,6 +231,8 @@ const AddToCartHandler = (item)=>{
     
     }
     const AddToWishlistHandler =(item)=>{
+
+        console.log("clicked")
 
         
     const newItm = {...item , isWished:true}
