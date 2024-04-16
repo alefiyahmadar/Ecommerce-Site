@@ -142,7 +142,7 @@ const SearchBarHandler =(e)=>{
 
     const filterData = getSortedData.filter((item)=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
     
-
+console.log(filterData)
 
 
 
