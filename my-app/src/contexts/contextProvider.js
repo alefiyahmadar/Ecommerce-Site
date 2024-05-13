@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState , React } from "react";
 
 import { users } from "../backend/db/users";
+import { products } from "../backend/db/products";
+
 import { formatDate } from "../backend/utils/authUtils";
 import {v4 as uuid} from "uuid"
 import { useNavigate } from "react-router-dom";
@@ -71,17 +73,17 @@ storedUser ? localStorage.setItem("user" , JSON.stringify(storedUser)) : localSt
 
 userArrayStored ? localStorage.setItem("userArray" , JSON.stringify(userArrayStored)) : localStorage.setItem("userArray" , JSON.stringify(userArray))
 
-console.log(storedUser)
+
+
+console.log("ppp")
+
+
+
 
 const fetchData =async()=>{
 
 
-
     try{
-        
-
-   
-
 
 const getData = await fetch("/api/products")
 
@@ -89,18 +91,6 @@ const data = await getData.json()
 
 const {products} = data
 setProducts(products)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -114,19 +104,9 @@ console.log(e)
 
 useEffect(()=>{
     
-    
-    
-
-
     fetchData()
     
-   
-    
-
-      
-
-
-  
+        
     
 },[])
 
