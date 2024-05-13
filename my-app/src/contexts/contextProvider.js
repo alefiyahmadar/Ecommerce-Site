@@ -71,6 +71,8 @@ storedUser ? localStorage.setItem("user" , JSON.stringify(storedUser)) : localSt
 
 userArrayStored ? localStorage.setItem("userArray" , JSON.stringify(userArrayStored)) : localStorage.setItem("userArray" , JSON.stringify(userArray))
 
+console.log(storedUser)
+
 const fetchData =async()=>{
 
 
