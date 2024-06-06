@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState , React } from "react";
 
 import { users } from "../backend/db/users";
-import { products } from "../backend/db/products";
+
 
 import { formatDate } from "../backend/utils/authUtils";
 import {v4 as uuid} from "uuid"
